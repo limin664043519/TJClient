@@ -1,0 +1,1331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6A70182-CC9D-497F-B5B6-19C21863D869}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TJClient</RootNamespace>
+    <AssemblyName>TJClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>www.ico.la_cc209ea7bc0cd61f7144eab4f5957800_128X128.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Debug\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Controls, Version=2.2.5.0, Culture=neutral, PublicKeyToken=a8ac264d1dc6b9d9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Debug\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Debug\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Debug\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Debug\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Cells, Version=8.2.1.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\TJClient\bin\Debug\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Words, Version=9.4.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AxInterop.HWPenSignLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator\Desktop\Desktop\AxInterop.HWPenSignLib.dll</HintPath>
+    </Reference>
+    <Reference Include="AxSHDocVw, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\AxSHDocVw.dll</HintPath>
+    </Reference>
+    <Reference Include="BC, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\2019\健康体检\客户端\TJClient_YQ\TJClient_YQ\BC\bin\BC.dll</HintPath>
+    </Reference>
+    <Reference Include="CBSTZ">
+      <HintPath>..\..\..\TJClient_YQ\TJClient_YQ\CBSTZ\bin\Debug\CBSTZ.dll</HintPath>
+    </Reference>
+    <Reference Include="ECGNETMS">
+      <HintPath>..\..\..\..\..\客户端\TJClient_YQ\TJClient_YQ\ECGNETMS\bin\Debug\ECGNETMS.dll</HintPath>
+    </Reference>
+    <Reference Include="ECGNETV260">
+      <HintPath>..\..\TJClient_YQ\ECGNET-V260\bin\Debug\ECGNETV260.dll</HintPath>
+    </Reference>
+    <Reference Include="Florentis.InteropAxFlSigCOM, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9fbfea2d6fdc8a6c, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_32\Florentis.InteropAxFlSigCOM\v4.0_3.10.0.0__9fbfea2d6fdc8a6c\Florentis.InteropAxFlSigCOM.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Florentis.InteropFlSigCapt, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9fbfea2d6fdc8a6c, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_64\Florentis.InteropFlSigCapt\v4.0_3.10.0.0__9fbfea2d6fdc8a6c\Florentis.InteropFlSigCapt.dll</HintPath>
+    </Reference>
+    <Reference Include="Florentis.InteropFlSigCOM, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9fbfea2d6fdc8a6c, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_64\Florentis.InteropFlSigCOM\v4.0_3.10.0.0__9fbfea2d6fdc8a6c\Florentis.InteropFlSigCOM.dll</HintPath>
+    </Reference>
+    <Reference Include="gwtjUpload, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\gwtjUpload.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>C:\Users\MQ\Documents\Visual Studio 2012\Projects\DBFieldOrganizeHelper\DBFieldOrganizeHelper\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="IMAC120">
+      <HintPath>..\..\..\..\..\客户端\TJClient_YQ\IMAC120\bin\Debug\IMAC120.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.HWPenSignLib">
+      <HintPath>C:\Users\Administrator\Desktop\Desktop\Interop.HWPenSignLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.MSScriptControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="LIS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\TJClient_YQ\TJClient_YQ\LIS\bin\Debug\LIS.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs.resources, Version=10.0.0.0, Culture=zh-Hans, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="RBP9000">
+      <HintPath>..\..\..\TJClient_YQ\TJClient_YQ\RBP9000\bin\Debug\RBP9000.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.License">
+      <HintPath>..\..\..\..\..\最新电子病历\EmrDBOutputToExcelOperation\EmrDBOutputToExcelOperation\bin\Debug\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf">
+      <HintPath>..\..\..\..\..\最新电子病历\EmrDBOutputToExcelOperation\EmrDBOutputToExcelOperation\bin\Debug\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.XLS">
+      <HintPath>..\..\..\..\..\最新电子病历\EmrDBOutputToExcelOperation\EmrDBOutputToExcelOperation\bin\Debug\Spire.XLS.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.60.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\System.Data.SQLite.DLL</HintPath>
+    </Reference>
+    <Reference Include="System.Database, Version=1.1.2011.2, Culture=neutral, PublicKeyToken=994450c276cd559e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="USBHIDDevice, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Debug\USBHIDDevice.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="YD500">
+      <HintPath>..\..\..\TJClient_YQ\TJClient_YQ\U500\bin\Debug\YD500.dll</HintPath>
+    </Reference>
+    <Reference Include="Yibao.Register, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Debug\Yibao.Register.dll</HintPath>
+    </Reference>
+    <Reference Include="Yq.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\2019\健康体检\客户端\TJClient_YQ\TJClient_YQ\BC\bin\Yq.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bll\Form_commBll.cs" />
+    <Compile Include="Bll\Form_SjzdBll.cs" />
+    <Compile Include="Bll\listboxFormBll.cs" />
+    <Compile Include="Bll\Form_xmzyBll.cs" />
+    <Compile Include="Bll\Form_xmflBll.cs" />
+    <Compile Include="Bll\Form_xmBll.cs" />
+    <Compile Include="Bll\Form_gzzBll.cs" />
+    <Compile Include="Bll\Form_gzzXmBll.cs" />
+    <Compile Include="Bll\Form_gzzRyBll.cs" />
+    <Compile Include="Bll\Form_txmBll.cs" />
+    <Compile Include="Bll\Form_yljgBll.cs" />
+    <Compile Include="Bll\Form_downLoadBll.cs" />
+    <Compile Include="Bll\Form_daxqBll.cs" />
+    <Compile Include="Bll\Form_jktjdBll.cs" />
+    <Compile Include="Bll\Form_lisSetBll.cs" />
+    <Compile Include="Bll\Form_lisBll.cs" />
+    <Compile Include="Bll\AddFormBll.cs" />
+    <Compile Include="Bll\jktjBll.cs" />
+    <Compile Include="Bll\DbSetBll.cs" />
+    <Compile Include="Bll\LisTmCorrespondingBll.cs" />
+    <Compile Include="Bll\RegisterBll.cs" />
+    <Compile Include="Bll\TjryTxmBll.cs" />
+    <Compile Include="Bll\TmBll.cs" />
+    <Compile Include="ComForm\DropDownGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComForm\DropDownGrid.Designer.cs">
+      <DependentUpon>DropDownGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComForm\Form_photo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComForm\Form_photo.designer.cs">
+      <DependentUpon>Form_photo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComForm\peopleXmUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComForm\peopleXmUpdate.Designer.cs">
+      <DependentUpon>peopleXmUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComForm\Form_readSfzh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComForm\Form_readSfzh.Designer.cs">
+      <DependentUpon>Form_readSfzh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComForm\listboxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComForm\listboxForm.designer.cs">
+      <DependentUpon>listboxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComForm\sysAutoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComForm\sysAutoForm.designer.cs">
+      <DependentUpon>sysAutoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComForm\sysCommonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComForm\sysCommonForm.Designer.cs">
+      <DependentUpon>sysCommonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComForm\listbox_cz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComForm\listbox_cz.designer.cs">
+      <DependentUpon>listbox_cz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComForm\Form_fzlr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComForm\Form_fzlr.designer.cs">
+      <DependentUpon>Form_fzlr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComForm\YWAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComForm\YWAdd.Designer.cs">
+      <DependentUpon>YWAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComForm\YWDropDownGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComForm\YWDropDownGrid.Designer.cs">
+      <DependentUpon>YWDropDownGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\BarCode.cs" />
+    <Compile Include="Common\ButtonEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\CommonExcel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\ConfigHelper.cs" />
+    <Compile Include="Common\Config\Config.cs" />
+    <Compile Include="Common\Config\DoctorConfigHelper.cs" />
+    <Compile Include="Common\DataGridViewCheckBoxHeaderCell.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\DateHelper.cs" />
+    <Compile Include="Common\DBAccess.cs" />
+    <Compile Include="Common\PrintHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\SqlHelper.cs" />
+    <Compile Include="Common\SQLiteHelper.cs" />
+    <Compile Include="Common\MedExSqlHelper.cs" />
+    <Compile Include="Dal\LisTmCorrespondingDal.cs" />
+    <Compile Include="Dal\RegisterDal.cs" />
+    <Compile Include="Dal\TjryTxmDal.cs" />
+    <Compile Include="Dal\TmDal.cs" />
+    <Compile Include="Devices\Common\Xueyaji.cs" />
+    <Compile Include="Devices\Com\Common.cs" />
+    <Compile Include="Devices\Com\Maibobo.cs" />
+    <Compile Include="Devices\Com\SerialPortOperation.cs" />
+    <Compile Include="Devices\Com\TjDataTable.cs" />
+    <Compile Include="Devices\Usb\Omronhbp1100U.cs" />
+    <Compile Include="Formbacode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formbacode.Designer.cs">
+      <DependentUpon>Formbacode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_HealthExaminedUserSignname.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_HealthExaminedUserSignname.Designer.cs">
+      <DependentUpon>Form_HealthExaminedUserSignname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\LinQHelper.cs" />
+    <Compile Include="Helper\LogHelper.cs" />
+    <Compile Include="jktj\DataImportFromExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\DataImportFromExcel.designer.cs">
+      <DependentUpon>DataImportFromExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\Form_daxq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\Form_daxq.designer.cs">
+      <DependentUpon>Form_daxq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\Form_PeopleAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\Form_PeopleAdd.Designer.cs">
+      <DependentUpon>Form_PeopleAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\Form_xdt_upload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\Form_xdt_upload.designer.cs">
+      <DependentUpon>Form_xdt_upload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\JktjCheckboxDics.cs" />
+    <Compile Include="jktj\MedexList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\MedexList.Designer.cs">
+      <DependentUpon>MedexList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\upLoad_tj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\upLoad_tj.designer.cs">
+      <DependentUpon>upLoad_tj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\upLoad_jkda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\upLoad_jkda.designer.cs">
+      <DependentUpon>upLoad_jkda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\ImportDataFromExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\ImportDataFromExcel.designer.cs">
+      <DependentUpon>ImportDataFromExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\Form_daxq_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\Form_daxq_New.designer.cs">
+      <DependentUpon>Form_daxq_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\AutoForm_bc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\AutoForm_bc.designer.cs">
+      <DependentUpon>AutoForm_bc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\AutoForm_bclzzyy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\AutoForm_bclzzyy.Designer.cs">
+      <DependentUpon>AutoForm_bclzzyy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\AutoForm_Imac120.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\AutoForm_Imac120.Designer.cs">
+      <DependentUpon>AutoForm_Imac120.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\AutoForm_md.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\AutoForm_md.Designer.cs">
+      <DependentUpon>AutoForm_md.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\AutoForm_sgtz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\AutoForm_sgtz.Designer.cs">
+      <DependentUpon>AutoForm_sgtz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\AutoForm_xdecg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\AutoForm_xdecg.Designer.cs">
+      <DependentUpon>AutoForm_xdecg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\AutoForm_xdecgms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\AutoForm_xdecgms.Designer.cs">
+      <DependentUpon>AutoForm_xdecgms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\AutoForm_xdlz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\AutoForm_xdlz.Designer.cs">
+      <DependentUpon>AutoForm_xdlz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\Model\OpInfo.cs" />
+    <Compile Include="model\LisTmCorresponding.cs" />
+    <Compile Include="model\QmLisTm.cs" />
+    <Compile Include="model\TjryTxm.cs" />
+    <Compile Include="model\Tm.cs" />
+    <Compile Include="model\UserInfo.cs" />
+    <Compile Include="Common\XmlRW.cs" />
+    <Compile Include="Common\dbCommon.cs" />
+    <Compile Include="model\DataDownLoad_GW_Para.cs" />
+    <Compile Include="control\Pager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\Pager.designer.cs">
+      <DependentUpon>Pager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\Form_commDal.cs" />
+    <Compile Include="Dal\Form_SjzdDal.cs" />
+    <Compile Include="Dal\listboxFormDal.cs" />
+    <Compile Include="Dal\Form_xmzyDAl.cs" />
+    <Compile Include="Dal\Form_xmflDal.cs" />
+    <Compile Include="Dal\Form_xmDal.cs" />
+    <Compile Include="Dal\Form_gzzDal.cs" />
+    <Compile Include="Dal\Form_gzzXmDal.cs" />
+    <Compile Include="Dal\Form_gzzRyDal.cs" />
+    <Compile Include="Dal\Form_txmDal.cs" />
+    <Compile Include="Dal\Form_yljgDal.cs" />
+    <Compile Include="Dal\Form_downLoadDal.cs" />
+    <Compile Include="Dal\Form_daxqDal.cs" />
+    <Compile Include="Dal\Form_jktjDal.cs" />
+    <Compile Include="Dal\Form_lisSetDal.cs" />
+    <Compile Include="Dal\Form_lisDal.cs" />
+    <Compile Include="Dal\AddFormDal.cs" />
+    <Compile Include="Dal\jktjDal.cs" />
+    <Compile Include="Dal\DbSetDal.cs" />
+    <Compile Include="img.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="img.Designer.cs">
+      <DependentUpon>img.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\DataDownLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\DataDownLoad.designer.cs">
+      <DependentUpon>DataDownLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\LnrSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\LnrSelect.designer.cs">
+      <DependentUpon>LnrSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\LnrDataUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\LnrDataUp.Designer.cs">
+      <DependentUpon>LnrDataUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\LnrDj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\LnrDj.designer.cs">
+      <DependentUpon>LnrDj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\LnrXwnlpg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\LnrXwnlpg.Designer.cs">
+      <DependentUpon>LnrXwnlpg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\LnrZytz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\LnrZytz.Designer.cs">
+      <DependentUpon>LnrZytz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\LnrJktj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\LnrJktj.Designer.cs">
+      <DependentUpon>LnrJktj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jktj\update_tj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jktj\update_tj.designer.cs">
+      <DependentUpon>update_tj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\lis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\lis.Designer.cs">
+      <DependentUpon>lis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\AutoForm_xd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\AutoForm_xd.designer.cs">
+      <DependentUpon>AutoForm_xd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\lis_new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\lis_new.Designer.cs">
+      <DependentUpon>lis_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\LTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="model\Form_SjzdModel.cs" />
+    <Compile Include="model\DataDownLoad_TJ_Para.cs" />
+    <Compile Include="model\CommomSysInfo.cs" />
+    <Compile Include="NeedToUseForm\FrmLisTmCorresponding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NeedToUseForm\FrmLisTmCorresponding.Designer.cs">
+      <DependentUpon>FrmLisTmCorresponding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NeedToUseForm\FrmQmLisOutput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NeedToUseForm\FrmQmLisOutput.Designer.cs">
+      <DependentUpon>FrmQmLisOutput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NeedToUseForm\FrmRecieveLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NeedToUseForm\FrmRecieveLog.Designer.cs">
+      <DependentUpon>FrmRecieveLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NeedToUseForm\FrmXdtSendLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NeedToUseForm\FrmXdtSendLog.Designer.cs">
+      <DependentUpon>FrmXdtSendLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\printForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\printForm.designer.cs">
+      <DependentUpon>printForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\printSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\printSet.designer.cs">
+      <DependentUpon>printSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignnameForm\Form_HanwangEsp560Signname.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignnameForm\Form_HanwangEsp560Signname.Designer.cs">
+      <DependentUpon>Form_HanwangEsp560Signname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Signname\Common.cs" />
+    <Compile Include="Signname\CompressHelper.cs" />
+    <Compile Include="Signname\ControlOperation.cs" />
+    <Compile Include="Signname\DataOperation.cs" />
+    <Compile Include="Signname\DirectoryHelper.cs" />
+    <Compile Include="Signname\FileHelper.cs" />
+    <Compile Include="Signname\FilenameHelper.cs" />
+    <Compile Include="Signname\Model\HealthExaminedUserInfo.cs" />
+    <Compile Include="Signname\Model\JktjSignname.cs" />
+    <Compile Include="Signname\Model\SignnameResult.cs" />
+    <Compile Include="Signname\Model\Tablet.cs" />
+    <Compile Include="Signname\Model\UserSignname.cs" />
+    <Compile Include="Signname\Operation.cs" />
+    <Compile Include="Signname\SignnameConst.cs" />
+    <Compile Include="Signname\TabletHelper.cs" />
+    <Compile Include="Signname\Tablets\HwTablet.cs" />
+    <Compile Include="Signname\UploadOperation.cs" />
+    <Compile Include="Signname\Tablets\WebComTablet.cs" />
+    <Compile Include="UploadInfo\FrmUploadInfos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadInfo\FrmUploadInfos.Designer.cs">
+      <DependentUpon>FrmUploadInfos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JKTJ\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ComForm\DropDownGrid.resx">
+      <DependentUpon>DropDownGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComForm\Form_photo.resx">
+      <DependentUpon>Form_photo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComForm\peopleXmUpdate.resx">
+      <DependentUpon>peopleXmUpdate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComForm\Form_readSfzh.resx">
+      <DependentUpon>Form_readSfzh.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComForm\listboxForm.resx">
+      <DependentUpon>listboxForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComForm\sysAutoForm.resx">
+      <DependentUpon>sysAutoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComForm\sysCommonForm.resx">
+      <DependentUpon>sysCommonForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComForm\listbox_cz.resx">
+      <DependentUpon>listbox_cz.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComForm\Form_fzlr.resx">
+      <DependentUpon>Form_fzlr.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComForm\YWAdd.resx">
+      <DependentUpon>YWAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComForm\YWDropDownGrid.resx">
+      <DependentUpon>YWDropDownGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\Pager.resx">
+      <DependentUpon>Pager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formbacode.resx">
+      <DependentUpon>Formbacode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_HealthExaminedUserSignname.resx">
+      <DependentUpon>Form_HealthExaminedUserSignname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="img.resx">
+      <DependentUpon>img.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\DataDownLoad.resx">
+      <DependentUpon>DataDownLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\DataImportFromExcel.resx">
+      <DependentUpon>DataImportFromExcel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\Form_daxq.resx">
+      <DependentUpon>Form_daxq.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\Form_PeopleAdd.resx">
+      <DependentUpon>Form_PeopleAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\Form_xdt_upload.resx">
+      <DependentUpon>Form_xdt_upload.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\LnrSelect.resx">
+      <DependentUpon>LnrSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\LnrDataUp.resx">
+      <DependentUpon>LnrDataUp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\LnrDj.resx">
+      <DependentUpon>LnrDj.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\LnrXwnlpg.resx">
+      <DependentUpon>LnrXwnlpg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\LnrZytz.resx">
+      <DependentUpon>LnrZytz.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\LnrJktj.resx">
+      <DependentUpon>LnrJktj.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\MedexList.resx">
+      <DependentUpon>MedexList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\update_tj.resx">
+      <DependentUpon>update_tj.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\upLoad_tj.resx">
+      <DependentUpon>upLoad_tj.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\upLoad_jkda.resx">
+      <DependentUpon>upLoad_jkda.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\ImportDataFromExcel.resx">
+      <DependentUpon>ImportDataFromExcel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jktj\Form_daxq_New.resx">
+      <DependentUpon>Form_daxq_New.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\AutoForm_bc.resx">
+      <DependentUpon>AutoForm_bc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\AutoForm_bclzzyy.resx">
+      <DependentUpon>AutoForm_bclzzyy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\AutoForm_Imac120.resx">
+      <DependentUpon>AutoForm_Imac120.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\AutoForm_md.resx">
+      <DependentUpon>AutoForm_md.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\AutoForm_sgtz.resx">
+      <DependentUpon>AutoForm_sgtz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\AutoForm_xdecg.resx">
+      <DependentUpon>AutoForm_xdecg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\AutoForm_xdecgms.resx">
+      <DependentUpon>AutoForm_xdecgms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\AutoForm_xdlz.resx">
+      <DependentUpon>AutoForm_xdlz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\lis.resx">
+      <DependentUpon>lis.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\AutoForm_xd.resx">
+      <DependentUpon>AutoForm_xd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\lis_new.resx">
+      <DependentUpon>lis_new.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NeedToUseForm\FrmLisTmCorresponding.resx">
+      <DependentUpon>FrmLisTmCorresponding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NeedToUseForm\FrmQmLisOutput.resx">
+      <DependentUpon>FrmQmLisOutput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NeedToUseForm\FrmRecieveLog.resx">
+      <DependentUpon>FrmRecieveLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NeedToUseForm\FrmXdtSendLog.resx">
+      <DependentUpon>FrmXdtSendLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\printForm.resx">
+      <DependentUpon>printForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\printSet.resx">
+      <DependentUpon>printSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignnameForm\Form_HanwangEsp560Signname.resx">
+      <DependentUpon>Form_HanwangEsp560Signname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\DbSet.resx">
+      <DependentUpon>DbSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\Form_PageSet.resx">
+      <DependentUpon>Form_PageSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\Form_sysEdit.resx">
+      <DependentUpon>Form_sysEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\Form_Sjzd.resx">
+      <DependentUpon>Form_Sjzd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\Form_xmzy.resx">
+      <DependentUpon>Form_xmzy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\Form_xmfl.resx">
+      <DependentUpon>Form_xmfl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\Form_xm.resx">
+      <DependentUpon>Form_xm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\Form_gzz.resx">
+      <DependentUpon>Form_gzz.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\Form_gzzXm.resx">
+      <DependentUpon>Form_gzzXm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\Form_gzzRy.resx">
+      <DependentUpon>Form_gzzRy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\Form_txm.resx">
+      <DependentUpon>Form_txm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\Form_yljg.resx">
+      <DependentUpon>Form_yljg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\Form_lisSet.resx">
+      <DependentUpon>Form_lisSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lis\AutoForm.resx">
+      <DependentUpon>AutoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\Form_txmSet.resx">
+      <DependentUpon>Form_txmSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Form.resx">
+      <DependentUpon>Main_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UploadInfo\FrmUploadInfos.resx">
+      <DependentUpon>FrmUploadInfos.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Dll\gwtjUpload.dll.config" />
+    <None Include="packages\Aspose.Cells.8.2.1\Aspose.Cells.8.2.1.nuspec" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Common\PublicDataHelp.cs" />
+    <Compile Include="sys\DbSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\DbSet.designer.cs">
+      <DependentUpon>DbSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Form_PageSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\Form_PageSet.designer.cs">
+      <DependentUpon>Form_PageSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Form_sysEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\Form_sysEdit.Designer.cs">
+      <DependentUpon>Form_sysEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Form_Sjzd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\Form_Sjzd.designer.cs">
+      <DependentUpon>Form_Sjzd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Form_xmzy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\Form_xmzy.designer.cs">
+      <DependentUpon>Form_xmzy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Form_xmfl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\Form_xmfl.designer.cs">
+      <DependentUpon>Form_xmfl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Form_xm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\Form_xm.designer.cs">
+      <DependentUpon>Form_xm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Form_gzz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\Form_gzz.designer.cs">
+      <DependentUpon>Form_gzz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Form_gzzXm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\Form_gzzXm.designer.cs">
+      <DependentUpon>Form_gzzXm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Form_gzzRy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\Form_gzzRy.designer.cs">
+      <DependentUpon>Form_gzzRy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Form_txm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\Form_txm.designer.cs">
+      <DependentUpon>Form_txm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Form_yljg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\Form_yljg.designer.cs">
+      <DependentUpon>Form_yljg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\Form_lisSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\Form_lisSet.designer.cs">
+      <DependentUpon>Form_lisSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Form_txmSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\Form_txmSet.designer.cs">
+      <DependentUpon>Form_txmSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\GwtjDoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\GWXT_download\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Lis\AutoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lis\AutoForm.designer.cs">
+      <DependentUpon>AutoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Form.Designer.cs">
+      <DependentUpon>Main_Form.cs</DependentUpon>
+    </Compile>
+    <None Include="Web References\JKTJ\LoggerInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JKTJ\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_close2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_max1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_max2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_min1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_min2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\func1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\func2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\func3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\head.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\head2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\head3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\head22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_down2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_tjdx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\input_bg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logChild_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_big_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_btn1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_btn1_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_btn2_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_btn2_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_mini_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QQ图片20141121093258.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QQ图片20141121105102.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selfprint_back1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tjdx_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tjtab_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\登陆big效果图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\登陆mini效果图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://221.1.64.214:9090/GWTJ/webservice/healthAssistant%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GWXT_download\</RelPath>
+      <UpdateFromURL>http://221.1.64.214:9090/GWTJ/webservice/healthAssistant%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>TJClient_GWXT_HealthAssistantServiceImplService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:13652/ClientDoService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JKTJ\</RelPath>
+      <UpdateFromURL>http://localhost:13652/ClientDoService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>TJClient_JKTJ_ClientDoService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:3699/GwtjDoService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GwtjDoService\</RelPath>
+      <UpdateFromURL>http://localhost:3699/GwtjDoService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>TJClient_GwtjDoService_GwtjDoService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dll\Aspose.Words.dll" />
+    <Content Include="Dll\AxSHDocVw.dll" />
+    <Content Include="Dll\BC.xml" />
+    <Content Include="Dll\FCP7101.xml" />
+    <Content Include="Dll\gwtjUpload.dll" />
+    <Content Include="Dll\gwtjUpload.pdb" />
+    <Content Include="Dll\HT2000.xml" />
+    <Content Include="Dll\shdocvw.dll" />
+    <Content Include="Dll\TM2655P.xml" />
+    <Content Include="Dll\URT200B.xml" />
+    <Content Include="Dll\sysSet.xml" />
+    <Content Include="Dll\UserConfig.xml" />
+    <None Include="Resources\logo1.png" />
+    <Content Include="www.ico.la_cc209ea7bc0cd61f7144eab4f5957800_128X128.ico" />
+    <None Include="Resources\func2_new.png" />
+    <None Include="Web References\GwtjDoService\GwtjDoService.wsdl" />
+    <None Include="Web References\GwtjDoService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\GWXT_download\HealthAssistantServiceImplService.wsdl" />
+    <None Include="Web References\GWXT_download\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\JKTJ\ClientDoService.wsdl" />
+    <Content Include="sql\UserSqlConfig.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web References\GwtjDoService\GwtjDoService.disco" />
+    <None Include="Web References\JKTJ\ClientDoService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

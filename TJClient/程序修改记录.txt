@@ -1,0 +1,233 @@
+公卫体检客户端
+---------------------------------------------------------------------
+版本号：v2.2.0
+更新日期：2017-08-25
+
+---------------版本号：2.2.0------------客户端显示上传日志记录--------------结束
+更新日期：2017-08-14
+加入客户端显示上传日志的功能。
+新加入一个窗体，用于显示上传信息。
+所在目录TJClient/UploadInfo
+
+
+客户端表修改，主要是新加了字段。
+
+t_tj_yyqkb_tmp 添加y_jb 文本字段
+alter table T_TJ_YYQKB_TMP add column y_jb varchar(30)
+
+
+
+t_jk_jktj 添加 xxabo,xxrh,g_bchaoqt,g_bchaoqtyi 文本字段
+alter table t_jk_jktj add column xxabo varchar(20)
+alter table t_jk_jktj add column xxrh varchar(30)
+alter table t_jk_jktj add column g_bchaoqt varchar(20)
+alter table t_jk_jktj add column g_bchaoqtyi varchar(50)
+
+t_jk_jktj_tmp 添加xxabo,xxrh,g_bchaoqt,g_bchaoqtyi文本字段
+alter table t_jk_jktj_tmp add column xxabo varchar(20)
+alter table t_jk_jktj_tmp add column xxrh varchar(30)
+alter table t_jk_jktj_tmp add column g_bchaoqt varchar(20)
+alter table t_jk_jktj_tmp add column g_bchaoqtyi varchar(50)
+
+
+修改视图
+SELECT jktj.G_ZHZH, jktj.G_TW, jktj.G_HX, jktj.G_MB, jktj.G_XYYC1, jktj.G_XYYC2, jktj.G_XYZC1, jktj.G_XYZC2, jktj.G_SG, jktj.G_YW, jktj.G_TZH, jktj.G_TZHZH, jktj.G_LNRRZ, jktj.G_LNRQG, jktj.G_LNRRZFEN, jktj.G_LNRQGFEN, jktj.G_ZYSL, jktj.G_YYSL, jktj.G_ZYJZ, jktj.G_YYJZ, jktj.G_TL, jktj.G_YDGN, jktj.G_PFGM, jktj.G_LBJ, jktj.G_LBJQT, jktj.G_TZX, jktj.G_HXY, jktj.G_LY, jktj.G_HXYYC, jktj.G_LYYC, jktj.G_XINLV, jktj.G_XINLVCI, jktj.G_ZAYIN, jktj.G_ZAYINYO, jktj.G_YATO, jktj.G_BK, jktj.G_GANDA, jktj.G_PIDA, jktj.G_ZHUOYIN, jktj.G_YATOYO, jktj.G_BKYO, jktj.G_GANDAYO, jktj.G_PIDAYO, jktj.G_ZHUOYINYO, jktj.G_XZSZ, jktj.G_GMZHZH, jktj.G_GMZHZHYI, jktj.G_QLX, jktj.G_CTQT, jktj.WBC, jktj.HB, jktj.PLT, jktj.G_XCGQT, jktj.G_NDB, jktj.G_NT, jktj.G_NTT, jktj.G_NQX, jktj.G_NCGQT, jktj.G_DBQX, jktj.ALT, jktj.AST, jktj.ALB, jktj.TBIL, jktj.DBIL, jktj.SCR, jktj.BUN, jktj.CHO, jktj.TG, jktj.LDLC, jktj.HDLC, jktj.G_KFXT, jktj.HBSAG, jktj.G_YAND, jktj.G_YANDYI, jktj.G_XINDT, jktj.G_XINDTYI, jktj.G_XIONGP, jktj.G_XIONGPYC, jktj.G_BCHAO, jktj.G_BCHAOYI, jktj.G_FUZHUQT, jktj.G_JLJJY, jktj.D_GRDABH, jktj.CREATREGION, jktj.CREATETIME, jktj.CREATEUSER, jktj.UPDATETIME, jktj.UPDATEUSER, jktj.HAPPENTIME, jktj.P_RGID, jktj.FIELD1, jktj.FIELD2, jktj.FIELD3, jktj.FIELD4, jktj.G_TUNWEI, jktj.G_YTWBZ, jktj.G_DLPL, jktj.G_MCDLSJ, jktj.G_JCDLSJ, jktj.G_DLFS, jktj.G_YSXG, jktj.G_XYZK, jktj.G_RXYL, jktj.G_KSXYNL, jktj.G_JYNL, jktj.G_YJPL, jktj.G_RYJL, jktj.G_SFJJ, jktj.G_JJNL, jktj.G_KSYJNL, jktj.G_YNNSFYJ, jktj.G_YJZL, jktj.G_YJZLQT, jktj.G_YWZYBL, jktj.G_JTZY, jktj.G_CYSJ, jktj.G_HXP, jktj.G_HXPFHCS, jktj.G_HXPFHCSJT, jktj.G_DUWU, jktj.G_DWFHCS, jktj.G_DWFHCSQT, jktj.G_SHEXIAN, jktj.G_SXFHCS, jktj.G_SXFHCSQT, jktj.G_KOUCHUN, jktj.G_CHILEI, jktj.G_YANBU, jktj.G_PFQT, jktj.G_GONGMO, jktj.G_GMQT, jktj.G_ZBDMMD, jktj.G_RUXIAN, jktj.G_RUXIANQT, jktj.G_WAIYIN, jktj.G_WAIYINYC, jktj.G_YINDAO, jktj.G_YINDAOYC, jktj.G_GONGJING, jktj.G_GONGJINGYC, jktj.G_GONGTI, jktj.G_GONGTIYC, jktj.G_FUJIAN, jktj.G_FUJIANYC, jktj.G_SGNXJND, jktj.G_SGNXNND, jktj.G_THXHDB, jktj.G_GJTP, jktj.G_GJTPYC, jktj.G_PHZ, jktj.G_QXZ, jktj.G_YANGXZ, jktj.G_YINXZ, jktj.G_TSZ, jktj.G_SRZ, jktj.G_XYZ, jktj.G_QYZ, jktj.G_TBZ, jktj.G_NXGJB, jktj.G_NXGJBQT, jktj.G_SZJB, jktj.G_SZJBQT, jktj.G_XZJB, jktj.G_XZJBQT, jktj.G_XGJB, jktj.G_XGJBQT, jktj.G_YBJB, jktj.G_YBJBQT, jktj.G_SJXTJB, jktj.G_SJXTJBQT, jktj.G_QTXTJB, jktj.G_QTXTJBQT, jktj.G_JKPJ, jktj.G_JKPJYC1, jktj.G_JKPJYC2, jktj.G_JKPJYC3, jktj.G_JKPJYC4, jktj.G_JKZD, jktj.G_WXYSKZ, jktj.G_WXYSTZ, jktj.G_WSYSYM, jktj.G_WXYSQT, jktj.FIELD5, jktj.G_ZZQT, jktj.G_XYYC, jktj.G_XYZC, jktj.G_QTZHZH, jktj.QDQXZ, jktj.kchqt, jktj.chlqt, jktj.ybqt, jktj.ydgnqt, jktj.lnrzkpg, jktj.lnrzlpg, jktj.fenchen, jktj.wuliyinsu, jktj.blqita, jktj.fchcs, jktj.wlcs, jktj.blqtcs, jktj.fchY, jktj.wlY, jktj.qtY, jktj.tnbfxjf, jktj.WBC_SUP, jktj.PLT_SUP, jktj.G_CHXT, jktj.ZCYY, jktj.YCYY, jktj.G_CLQUE, jktj.G_CLQU, jktj.G_CLYI, jktj.WZD, jktj.NWLBDB, jktj.guid, jktj.czy, jktj.gzz, jktj.apky, jktj.jtdb, jktj.niaosuan, jktj.XDTURL, jktj.xxabo, jktj.xxrh, jktj.g_bchaoqt, jktj.g_bchaoqtyi, t.YLJGBM, t.TJJHBM, t.TJPCH, t.SFH, t.SXHM, t.TJBM, t.JKDAH, t.XM, t.XB, t.SFZH, t.LXDH, t.CSRQ, t.CZBM, t.FL, t.BZ, t.TJBH_TEM, t.SCZT, t.ZLBZ, t.nd, t.PRgID, zt.GZZBM, zt.TJSJ, zt.CZY, zt.TJTYPE, zt.ZT
+FROM (T_JK_TJRYXX AS t LEFT JOIN T_JK_TJZT AS zt ON (t.YLJGBM = zt.YLJGBM) AND (t.JKDAH = zt.JKDAH)) LEFT JOIN T_JK_JKTJ AS jktj ON (zt.JKDAH = jktj.D_GRDABH) AND (zt.tjsj = jktj.HAPPENTIME);
+
+---------------版本号：2.2.0------------客户端显示上传日志记录--------------结束
+更新日期：2017-08-31
+下载上次体检结果时出现系统错误
+
+客户端表修改id的类型
+
+--住院治疗情况
+alter table T_TJ_ZYZLQKB_TMP alter column Z_ID varchar(100);
+
+--用药情况
+alter table T_TJ_YYQKB_TMP alter column y_ID varchar(100);
+--非免疫
+alter table T_TJ_FMYGHYFB_TMP alter column F_ID varchar(100);
+
+---------------版本号：2.2.0------------客户端显示上传日志记录--------------结束
+---------------版本号：2.2.0------------客户端条码打印----------------------开始
+更新日期：2017-09-07
+条码打印时，如果是已经存在的档案不存在条码时，打印的条码 条码号不正确
+
+修改客户端条码打印时不存在条码生成条码的处理
+修改文档
+Form_PeopleAdd.cs
+
+---------------版本号：2.2.0------------客户端条码打印---------------------结束
+---------------版本号：2.2.0------------仪器注册----------------------开始
+更新日期：2017-09-20
+仪器的注册相关处理
+
+1.增加表
+create table BASE_SYSCONFIG
+(
+  id             VARCHAR(50),
+  codes          VARCHAR(20),
+  [names]          VARCHAR(50),
+  svalue         VARCHAR(100),
+  createdby      int,
+  createdtime    VARCHAR(100),
+  lastmodifyby   int,
+  lastmodifytime VARCHAR(100),
+  isactived      int,
+  notes          VARCHAR(200),
+  yybm           VARCHAR(100),
+  canedit        int
+)
+
+2.--机构数据库表增加字段  年度及注册码
+-- Add/modify columns 
+alter table SYS_ORG add registercode VARCHAR(50);
+alter table SYS_ORG add registernd VARCHAR(50);
+
+3.修改页面  
+  LnrJktj
+  Form_lisSet
+  lis_new
+增加
+RegisterDal
+RegisterBll
+
+--客户端
+-- Add/modify columns 
+
+alter table SYS_ORG ALTER COLUMN  registercode text;
+-- Add/modify columns 
+alter table BASE_SYSCONFIG  ALTER COLUMN  svalue text;
+
+---------------版本号：2.2.0------------仪器注册---------------------结束
+---------------版本号：2.2.0------------签名操作----------------------开始
+更新日期：2017-10-14
+添加表t_jk_usersignname （id需要设置自增）
+create table T_JK_USERSIGNNAME
+(
+  yljgbm          VARCHAR(32),
+  czy             VARCHAR(20),
+  signnamepicpath VARCHAR(200),
+  createdate      VARCHAR(30),
+  createuser      VARCHAR(20),
+  updatedate      VARCHAR(30),
+  updateuser      VARCHAR(20),
+  isdelete        INTEGER,
+  id              INTEGER not null,
+  signnametitle   VARCHAR(50)
+)
+
+在app.config 中加入新key,判断是否签名,1为签名，0为不签，不存在也为不签。
+<add key="SignnameOperation" value="1"/> 是否启用签名
+<add key="TabletKey" value="AgAZAPZTkH0EBVdhY29tClNESyBTYW1wbGUBAoECA2UA"/> 签字板的key
+
+
+
+修改体检项目表(t_jk_tjxm)，加入签名组字段
+SIGNNAMEGROUP 
+alter table t_jk_tjxm add SIGNNAMEGROUP VARCHAR(40);
+新加表T_JK_JKTJSIGNNAME （id需要设置自增）
+create table T_JK_JKTJSIGNNAME
+(
+  id	          INTEGER not null,
+  yljgbm          VARCHAR(32),
+  d_grdabh        VARCHAR(32),
+  tjsj            VARCHAR(30),
+  usersignnameid  INTEGER,
+  signnamepicpath VARCHAR(200),
+  signnamegroup   VARCHAR(20),
+  czy             VARCHAR(20)
+)
+
+
+引用了ICSharpCode.SharpZipLib.dll文件，用于z
+ip压缩，解压缩
+
+2017-10-24对签名再次修改，主要加入了健康体检时，加入创建人，创建日期，修改人，修改日期
+对t_jk_jktjsignname修改
+加入
+CREATEUSER 短文本 20
+CREATEDATE 短文本 30
+UPDATEUSER 短文本 20
+UPDATEDATE 短文本 30
+ALTER TABLE t_jk_jktjsignname ADD CREATEUSER varchar(20);
+ALTER TABLE t_jk_jktjsignname ADD CREATEDATE varchar(30);
+ALTER TABLE t_jk_jktjsignname ADD UPDATEUSER varchar(20);
+ALTER TABLE t_jk_jktjsignname ADD UPDATEDATE varchar(30);
+
+---------------版本号：2.2.0------------签名操作----------------------结束
+---------------版本号：2.2.0------------lis自动上传下载功能----------------------开始
+2017-11-09 mq
+主要添加lis数据的自动上传下载功能。
+修改的主要文件在程序Lis目录下
+为与公司内116的数据库相连，实现上传下载。修改app.config如下：
+    
+<add key="lis_reqmain" value="SQH;SQH|KSDH;KSDH|SQYS;SQYS|SQSJ;SQSJ|JSYS;JSYS|JSSJ;JSSJ|ZT;ZT|JJZT;JJZT|BRLY;BRLY|BRDH;BRDH|BRXM;BRXM|BRXB;BRXB|BRSR;BRSR|BZ1;BZ1|BZ2;BZ2|BZ3;BZ3|JZBZ;JZBZ|TXM;TXM|CH;CH|YBLX;YBLX|ZXYS;ZXYS|ZXSJ;ZXSJ|BGDDH;BGDDH|COSTS;COSTS|NL;NL|NLDW;NLDW|ZD;ZD|CYSJ;CYSJ|CKSJ;CKSJ|CKZJ;CKZJ|CKYH;CKYH"/>
+    
+<add key="lis_reqdetail" value="sqh;sqh|xh;xh|sqxmdh;sqxmdh|sqxmmc;sqxmmc|sl;sl|dj;dj|zt;zt|jjzt;jjzt|bz1;bz1|bz2;bz2|costs;costs|numbk1;numbk1|numbk2;numbk2|dtbk1;dtbk1|dtbk2;dtbk2"/>
+
+<add key="lis_sqdxz_main" value="insert into  LIS_REQMAIN(SQH,KSDH,SQYS,SQSJ,JSYS,JSSJ,ZT,JJZT,BRLY,BRDH,BRXM,BRXB,BRSR,BZ1,BZ2,BZ3,JZBZ,TXM,CH,YBLX,ZXYS,ZXSJ,BGDDH,COSTS,NL,NLDW,ZD,CYSJ,CKSJ,CKZJ,CKYH)
+select tem.SQH,tem.KSDH,tem.SQYS,tem.SQSJ,tem.JSYS,tem.JSSJ,tem.ZT,tem.JJZT,tem.BRLY,tem.BRDH,tem.BRXM,tem.BRXB,tem.BRSR,tem.BZ1,tem.BZ2,tem.BZ3,tem.JZBZ,tem.TXM,tem.CH,tem.YBLX,tem.ZXYS,tem.ZXSJ,tem.BGDDH,tem.COSTS,tem.NL,tem.NLDW,tem.ZD,tem.CYSJ,tem.CKSJ,tem.CKZJ,tem.CKYH
+ from LIS_REQMAIN_TEM tem left join LIS_REQMAIN lis on tem.sqh=lis.sqh where lis.
+sqh  is null"/>
+
+<add key="lis_sqdxz_detail" value="insert into  LIS_REQDETAIL(SQH,XH,SQXMDH,SQXMMC,SL,DJ,ZT,JJZT,BZ1,BZ2,COSTS,NUMBK1,NUMBK2,DTBK1,DTBK2)
+ select tem.SQH,tem.XH,tem.SQXMDH,tem.SQXMMC,tem.SL,tem.DJ,tem.ZT,tem.JJZT,tem.BZ1,tem.BZ2,tem.COSTS,tem.NUMBK1,tem.NUMBK2,tem.DTBK1,tem.DTBK2
+ from LIS_REQDETAIL_TEM tem left join LIS_REQDETAIL lis on tem.sqh=lis.sqh and tem.xh=lis.xh where lis.sqh  is null"/>
+
+
+
+
+---------------版本号：2.2.0------------lis自动上传下载功能----------------------结束
+
+---------------版本号：2.2.0------------集成汉王签字板----------------------开始
+
+2017-11-10 mq
+客户端集成汉王签字板esp560
+app.config中新加入key
+<!--签字板类型 1为webcam,2为汉王esp560-->
+<add key="TabletType" value="2"/>
+
+---------------版本号：2.2.0------------集成汉王签字板----------------------结束
+
+---------------版本号：2.2.0------------将lis的数据上传下载，与oracle的直接操作剔除----------------------开始
+
+2017-11-13 mq
+剔除了项目中与oracle关联的部分。
+lis数据的上传下载，拆出到新项目。
+lis的项目svn的访问路径
+https://192.168.5.161/svn/jiayusoft/NET/其它/公共卫生体检系统/3.0/程序/TJClient_2008/公卫体检_新/LisDataOperation/LisDataOperation
+删去了客户端系统与共卫的直接操作功能。
+
+修改了客户端的app.config文件，将与lis数据上传下载相关，共卫操作相关的键值对删除。
+
+
+---------------版本号：2.2.0------------将lis的数据上传下载，与oracle的直接操作剔除----------------------结束
+---------------版本号：2.2.0------------拍照，本人家属反馈签字的修改----------------------开始
+
+2017-11-20 mq
+将拍照，本人家属反馈签字的功能合并。加入了拍照的展示。
+在登记中，加入了已签字，已拍照的查询。加入了已签字，已拍照的状态。
+
+修改了客户端数据库的视图
+view_ryxx_dj
+SELECT T_DA_JKDA_RKXZL.D_GRDABH, T_DA_JKDA_RKXZL.D_XM, T_DA_JKDA_RKXZL.D_zjhqt AS D_SFZH, T_DA_JKDA_RKXZL.D_LXDH, T_DA_JKDA_RKXZL.D_JWH, T_BS_CUNZHUANG.B_NAME AS JWHName, T_DA_JKDA_RKXZL.D_XB, SJZD.ZDMC AS XBName, T_DA_JKDA_RKXZL.D_CSRQ, T_DA_JKDA_RKXZL.D_MZ, SJZD_minzu.ZDMC AS minzuName, T_DA_JKDA_RKXZL.nd, T_JK_TJRYXX.YLJGBM, TJZT.TJSJ, TJZT.tjys, TJZT.CZY, TJZT.TJTYPE, TJZT.ZT, TJZT.sxh_dj, T_DA_JKDA_RKXZL.ID, T_DA_JKDA_RKXZL.diseases, T_JK_TJRYXX.JKDAH, T_JK_TJRYXX.TJBM, T_DA_JKDA_RKXZL.NL, T_DA_JKDA_RKXZL.deleteflag, T_DA_JKDA_RKXZL.updateflag, T_DA_JKDA_RKXZL.ISNEWDOC, SYS_ORG.[names], T_BS_CUNZHUANG.B_NAME, T_DA_JKDA_RKXZL.P_rgid, T_DA_JKDA_RKXZL.D_lxrdh, t_jk_photo.photourl, br.signnamepicpath AS brsignname, js.signnamepicpath AS jssignname
+FROM ((((((((T_DA_JKDA_RKXZL LEFT JOIN T_JK_TJRYXX ON (T_DA_JKDA_RKXZL.D_GRDABH = T_JK_TJRYXX.JKDAH) AND (T_DA_JKDA_RKXZL.nd = T_JK_TJRYXX.nd)) LEFT JOIN (select * from T_JK_TJZT where TJTYPE='0')  AS TJZT ON (T_JK_TJRYXX.YLJGBM = TJZT.YLJGBM) AND (T_JK_TJRYXX.JKDAH = TJZT.JKDAH) AND (T_JK_TJRYXX.nd = TJZT.ND)) LEFT JOIN (select * from T_JK_SJZD where ZDLXBM= 'xb_xingbie')  AS SJZD ON T_DA_JKDA_RKXZL.D_XB = SJZD.ZDBM) LEFT JOIN T_BS_CUNZHUANG ON T_DA_JKDA_RKXZL.D_JWH = T_BS_CUNZHUANG.B_RGID) LEFT JOIN (select * from T_JK_SJZD where ZDLXBM= 'mz_minzu' )  AS SJZD_minzu ON T_DA_JKDA_RKXZL.D_MZ = SJZD_minzu.ZDBM) LEFT JOIN SYS_ORG ON T_DA_JKDA_RKXZL.P_rgid = SYS_ORG.codes) LEFT JOIN t_jk_photo ON T_DA_JKDA_RKXZL.d_grdabh = t_jk_photo.jkdah) LEFT JOIN (select signnamepicpath,d_grdabh from t_jk_jktjsignname where signnamegroup='FKQZBR')  AS br ON T_DA_JKDA_RKXZL.d_grdabh = br.d_grdabh) LEFT JOIN (select signnamepicpath,d_grdabh from t_jk_jktjsignname where signnamegroup='FKQZJS')  AS js ON T_DA_JKDA_RKXZL.d_grdabh = js.d_grdabh;
+
+
+修改了UserSqlConfig.xml
+sql050_A
+SELECT  [names],id,IIf(zt='1','已登记','') AS ztName, D_XM,d_xb,XBName, D_LXDH, D_LXrDH,D_CSRQ , D_SFZH  , D_GRDABH , TJSJ,zt, T_DA_JKDA_RKXZL.diseases ,CZY,sxh_dj,TJBM,YLJGBM,nd,nl,IIf(deleteflag='1','已删除',IIf(updateflag='1','已修改','') ) AS datazt,B_NAME,IIf(photourl is not null,'已拍照','') as photoexists,IIf(brsignname is not null or jssignname is not null,'已签名','') as signnameexists FROM view_ryxx_dj where 1=1  {0}
+
+
+---------------版本号：2.2.0------------拍照，本人家属反馈签字的修改----------------------结束
+
+
+
+
+
+
+
+
+
+

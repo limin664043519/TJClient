@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://service.ws.pad.jiayu.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HealthAssistantServiceImplService" targetNamespace="http://service.ws.pad.jiayu.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://service.ws.pad.jiayu.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="healthAssistant" type="tns:healthAssistant" />
+      <xs:element name="healthAssistantResponse" type="tns:healthAssistantResponse" />
+      <xs:complexType name="healthAssistant">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="xmlString" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="healthAssistantResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="healthAssistant">
+    <wsdl:part name="parameters" element="tns:healthAssistant" />
+  </wsdl:message>
+  <wsdl:message name="healthAssistantResponse">
+    <wsdl:part name="parameters" element="tns:healthAssistantResponse" />
+  </wsdl:message>
+  <wsdl:portType name="HealthAssistantService">
+    <wsdl:operation name="healthAssistant">
+      <wsdl:input name="healthAssistant" message="tns:healthAssistant" />
+      <wsdl:output name="healthAssistantResponse" message="tns:healthAssistantResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HealthAssistantServiceImplServiceSoapBinding" type="tns:HealthAssistantService">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="healthAssistant">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="healthAssistant">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="healthAssistantResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HealthAssistantServiceImplService">
+    <wsdl:port name="HealthAssistantServiceImplPort" binding="tns:HealthAssistantServiceImplServiceSoapBinding">
+      <soap12:address location="http://221.1.64.214:9090/GWTJ/webservice/healthAssistant" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

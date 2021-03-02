@@ -1,0 +1,918 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<userConfig>
+  <sql_select_sjzd_A>
+    <text>数据字典查询</text>
+    <sql>SELECT ID, ZDLXBM, ZDLXMC, ZDBM, ZDMC, BZ FROM T_JK_SJZD  where 1=1 {0}  </sql>
+  </sql_select_sjzd_A>
+  <sql002_A>
+    <text>数据字典查询，按照拼音码 </text>
+    <sql>SELECT ZDLXBM as Code , ZDLXMC as Name FROM T_JK_SJZD  where 1=1 {0} group by ZDLXBM,ZDLXMC </sql>
+  </sql002_A>
+  <sql003_A>
+    <text>数据字典更新 </text>
+    <sql>update T_JK_SJZD set ZDLXBM='{ZDLXBM}' ,ZDLXMC='{ZDLXMC}',ZDBM='{ZDBM}',ZDMC='{ZDMC}',BZ='{BZ}',PYM='{pym}' where id={id}</sql>
+  </sql003_A>
+  <sql004_A>
+    <text>数据字典添加 </text>
+    <sql>insert into T_JK_SJZD(ZDLXBM, ZDLXMC, ZDBM, ZDMC, BZ, PYM) values ('{ZDLXBM}', '{ZDLXMC}', '{ZDBM}', '{ZDMC}', '{BZ}', '{PYM}')</sql>
+  </sql004_A>
+  <sql005_A>
+    <text>数据字典删除 </text>
+    <sql>delete from T_JK_SJZD where id={id} </sql>
+  </sql005_A>
+   <sql006_A>
+    <text>数据制御查询</text>
+    <sql>
+      SELECT T_JK_TJXMGLKZ.ID, T_JK_TJXMGLKZ.YLJGBM, T_JK_TJXMGLKZ.XMBM,t1.XMMC as XMMC1, T_JK_TJXMGLKZ.XMZ, T_JK_TJXMGLKZ.XMBM_B,t2.XMMC as XMMC2, T_JK_TJXMGLKZ.XMZ_C, T_JK_TJXMGLKZ.ifky, T_JK_TJXMGLKZ.orderby, T_JK_TJXMGLKZ.IFQY, T_JK_TJXMGLKZ.BZ
+      FROM (T_JK_TJXMGLKZ LEFT  JOIN T_JK_TJXM  T1 ON T_JK_TJXMGLKZ.XMBM=T1.XMBM)
+      LEFT  JOIN T_JK_TJXM  T2 ON T_JK_TJXMGLKZ.XMBM_B=T2.XMBM where 1=1 {0}
+    </sql>
+  </sql006_A>
+  
+  <sql007_A>
+    <text>数据制御插入</text>
+    <sql>
+      insert into T_JK_TJXMGLKZ(YLJGBM, XMBM, XMZ, XMBM_B, XMZ_C, ifky, orderby, IFQY, BZ) values('{YLJGBM}', '{XMBM}', '{XMZ}', '{XMBM_B}', '{XMZ_C}', '{ifky}', '{orderby}', '{IFQY}', '{BZ}') 
+    </sql>
+  </sql007_A>
+  <sql008_A>
+    <text>数据制御删除</text>
+    <sql>
+      delete from T_JK_TJXMGLKZ where id={id}
+    </sql>
+  </sql008_A>
+  <sql009_A>
+    <text>数据制御更新</text>
+    <sql>
+      update  T_JK_TJXMGLKZ
+      set YLJGBM='{YLJGBM}', XMBM='{XMBM}', XMZ='{XMZ}', XMBM_B='{XMBM_B}', XMZ_C='{XMZ_C}', ifky='{ifky}', orderby='{orderby}', IFQY='{IFQY}', BZ='{BZ}'
+      where id={id}
+    </sql>
+  </sql009_A>
+
+  <sql010_A>
+    <text>项目分类查询</text>
+    <sql>
+      SELECT XMFLBM, XMFLMC, BZ, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER FROM T_JK_XMFL where 1=1 {0}
+    </sql>
+  </sql010_A>
+
+  <sql011_A>
+    <text>项目分类更新</text>
+    <sql>
+      update T_JK_XMFL set XMFLBM='{XMFLBM}', XMFLMC='{XMFLMC}', BZ='{BZ}', CREATETIME='{CREATETIME}', CREATEUSER='{CREATEUSER}', UPDATETIME='{UPDATETIME}', UPDATEUSER='{UPDATEUSER}' where  XMFLBM='{XMFLBM}'
+    </sql>
+  </sql011_A>
+
+  <sql012_A>
+    <text>项目分类插入</text>
+    <sql>
+      insert into T_JK_XMFL(XMFLBM, XMFLMC, BZ, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER) values('{XMFLBM}', '{XMFLMC}', '{BZ}', '{CREATETIME}', '{CREATEUSER}', '{UPDATETIME}', '{UPDATEUSER}')
+    </sql>
+  </sql012_A>
+  
+  <sql013_A>
+    <text>项目分类删除</text>
+    <sql>
+      delete from  T_JK_XMFL  where  XMFLBM='{XMFLBM}'
+    </sql>
+  </sql013_A>
+
+  <sql014_A>
+    <text>项目查询</text>
+    <sql>
+      SELECT T_JK_TJXM.XMFLBM, T_JK_XMFL.XMFLMC, T_JK_TJXM.XMBM, T_JK_TJXM.XMMC, T_JK_TJXM.KJXSMC, T_JK_TJXM.KJLX, T_JK_TJXM.SJZDBM, T_JK_TJXM.KJID, T_JK_TJXM.KJKD, T_JK_TJXM.KJGD, T_JK_TJXM.KJMRZ, T_JK_TJXM.JKDA_DB, T_JK_TJXM.HIS_DB, T_JK_TJXM.BZ, T_JK_TJXM.CREATETIME, T_JK_TJXM.CREATEUSER, T_JK_TJXM.UPDATETIME, T_JK_TJXM.UPDATEUSER, T_JK_TJXM.SL, T_JK_TJXM.DJ, T_JK_TJXM.PARENTXM, T_JK_TJXM.PARENTXMVALUE, T_JK_TJXM.MAXCOUNT, T_JK_TJXM.DW, T_JK_TJXM.ORDERBY, T_JK_TJXM.rowNo, T_JK_TJXM.jj, T_JK_TJXM.type
+      FROM T_JK_TJXM  left  JOIN T_JK_XMFL ON T_JK_TJXM.XMFLBM = T_JK_XMFL.XMFLBM where 1=1 {0}
+    </sql>
+  </sql014_A>
+
+  <sql015_A>
+    <text>项目更新</text>
+    <sql>
+      update T_JK_TJXM set  XMFLBM='{XMFLBM}', XMBM='{XMBM}', XMMC='{XMMC}', KJXSMC='{KJXSMC}', KJLX='{KJLX}', SJZDBM='{SJZDBM}', KJID='{KJID}', KJKD=0'{KJKD}', KJGD=0'{KJGD}', KJMRZ='{KJMRZ}', JKDA_DB='{JKDA_DB}', HIS_DB='{HIS_DB}', BZ='{BZ}',
+      CREATETIME='{CREATETIME}', CREATEUSER='{CREATEUSER}', UPDATETIME='{UPDATETIME}', UPDATEUSER='{UPDATEUSER}', SL=0'{SL}', DJ=0'{DJ}', PARENTXM='{PARENTXM}', PARENTXMVALUE='{PARENTXMVALUE}', MAXCOUNT=0'{MAXCOUNT}', DW='{DW}', ORDERBY=0'{ORDERBY}', rowNo=0'{rowNo}',
+      jj=0'{jj}', type='{type}'
+      FROM T_JK_TJXM  where XMBM='{XMBM}'
+    </sql>
+  </sql015_A>
+
+  <sql016_A>
+    <text>项目插入</text>
+    <sql>
+      insert into T_JK_TJXM( XMFLBM, XMBM, XMMC, KJXSMC, KJLX, SJZDBM, KJID, KJKD, KJGD, KJMRZ, JKDA_DB, HIS_DB, BZ, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER, SL, DJ, PARENTXM, PARENTXMVALUE, MAXCOUNT, DW, ORDERBY, rowNo, jj, type)
+      values('{XMFLBM}', '{XMBM}', '{XMMC}', '{KJXSMC}', '{KJLX}', '{SJZDBM}', '{KJID}', '{KJKD}', '{KJGD}', '{KJMRZ}', '{JKDA_DB}', '{HIS_DB}', '{BZ}', '{CREATETIME}', '{CREATEUSER}', '{UPDATETIME}', '{UPDATEUSER}', '{SL}', '{DJ}', '{PARENTXM}', '{PARENTXMVALUE}', '{MAXCOUNT}', '{DW}', '{ORDERBY}', '{rowNo}', '{jj}', '{type}')
+    </sql>
+  </sql016_A>
+
+  <sql017_A>
+    <text>项目删除</text>
+    <sql>
+      delete from  T_JK_TJXM  where XMBM='{XMBM}'
+    </sql>
+  </sql017_A>
+
+  <sql018_A>
+    <text>工作组查询</text>
+    <sql>
+      SELECT YLJGBM, GZZBM, GZZMC, BZ, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER FROM T_JK_GZZ where 1=1 {0}
+    </sql>
+  </sql018_A>
+
+  <sql019_A>
+    <text>工作组更新</text>
+    <sql>
+      update T_JK_GZZ set YLJGBM='{YLJGBM}', GZZBM='{GZZBM}', GZZMC='{GZZMC}', BZ='{BZ}', CREATETIME='{CREATETIME}', CREATEUSER='{CREATEUSER}', UPDATETIME='{CREATEUSER}', UPDATEUSER='{UPDATEUSER}' where GZZBM='{GZZBM}' and YLJGBM='{YLJGBM}'
+    </sql>
+  </sql019_A>
+
+  <sql020_A>
+    <text>工作组插入</text>
+    <sql>
+      insert into T_JK_GZZ(YLJGBM, GZZBM, GZZMC, BZ, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER) values ('{YLJGBM}', '{GZZBM}', '{GZZMC}', '{BZ}', '{CREATETIME}', '{CREATEUSER}', '{UPDATETIME}', '{UPDATEUSER}')
+    </sql>
+  </sql020_A>
+
+  <sql021_A>
+    <text>工作组删除</text>
+    <sql>
+      delete from  T_JK_GZZ  where GZZBM='{GZZBM}' and YLJGBM='{YLJGBM}'
+    </sql>
+  </sql021_A>
+
+  <sql022_A>
+    <text>工作组项目查询</text>
+    <sql>
+      SELECT T_JK_GZZ_XM.ID, T_JK_GZZ_XM.YLJGBM, T_JK_GZZ_XM.GZZBM, T_JK_GZZ.GZZMC, T_JK_GZZ_XM.XMBM, T_JK_TJXM.XMmc, T_JK_GZZ_XM.BZ, T_JK_GZZ_XM.CREATETIME, T_JK_GZZ_XM.CREATEUSER, T_JK_GZZ_XM.UPDATETIME, T_JK_GZZ_XM.UPDATEUSER
+      FROM (T_JK_GZZ_XM  left  JOIN T_JK_GZZ ON (T_JK_GZZ_XM.GZZBM = T_JK_GZZ.GZZBM) AND (T_JK_GZZ_XM.YLJGBM = T_JK_GZZ.YLJGBM))  left  JOIN T_JK_TJXM ON T_JK_GZZ_XM.XMBM = T_JK_TJXM.XMBM where 1=1 {0}
+    </sql>
+  </sql022_A>
+
+  <sql023_A>
+    <text>工作组项目更新</text>
+    <sql>
+      update T_JK_GZZ_XM set YLJGBM='{YLJGBM}', GZZBM='{GZZBM}', XMBM='{XMBM}', BZ='{BZ}', CREATETIME='{CREATETIME}', CREATEUSER='{CREATEUSER}', UPDATETIME='{UPDATETIME}', UPDATEUSER='{UPDATEUSER}' where id={id}
+    </sql>
+  </sql023_A>
+
+  <sql024_A>
+    <text>工作组项目插入</text>
+    <sql>
+      insert into T_JK_GZZ_XM (YLJGBM, GZZBM, XMBM, BZ, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER) values ('{YLJGBM}', '{GZZBM}', '{XMBM}', '{BZ}', '{CREATETIME}', '{CREATEUSER}', '{UPDATETIME}', '{UPDATEUSER}')
+    </sql>
+  </sql024_A>
+
+  <sql025_A>
+    <text>工作组项目删除</text>
+    <sql>
+      delete from  T_JK_GZZ_XM  where id={id}
+    </sql>
+  </sql025_A>
+
+  <sql026_A>
+    <text>工作组人员查询</text>
+    <sql>
+      SELECT T_JK_GZZ_CZY.ID, T_JK_GZZ_CZY.YLJGBM, T_JK_GZZ_CZY.GZZBM, T_JK_GZZ.GZZMC, T_JK_GZZ_CZY.CZY, XT_GG_CZY.XM, T_JK_GZZ_CZY.JKDA_CZY, T_JK_GZZ_CZY.BZ, T_JK_GZZ_CZY.CREATETIME, T_JK_GZZ_CZY.CREATEUSER, T_JK_GZZ_CZY.UPDATETIME, T_JK_GZZ_CZY.UPDATEUSER
+      FROM (T_JK_GZZ  left  JOIN T_JK_GZZ_CZY ON (T_JK_GZZ.GZZBM = T_JK_GZZ_CZY.GZZBM) AND (T_JK_GZZ.YLJGBM = T_JK_GZZ_CZY.YLJGBM))  left  JOIN XT_GG_CZY ON (T_JK_GZZ_CZY.CZY = XT_GG_CZY.BM) AND (T_JK_GZZ_CZY.YLJGBM = XT_GG_CZY.YYBH) where 1=1 {0}
+    </sql>
+  </sql026_A>
+
+  <sql027_A>
+    <text>工作组人员更新</text>
+    <sql>
+      update T_JK_GZZ_CZY set  YLJGBM='{YLJGBM}', GZZBM='{GZZBM}', CZY='{CZY}', JKDA_CZY='{JKDA_CZY}', BZ='{BZ}', CREATETIME='{CREATETIME}', CREATEUSER='{CREATEUSER}', UPDATETIME='{UPDATETIME}', UPDATEUSER='{UPDATEUSER}' where id={id}
+    </sql>
+  </sql027_A>
+
+  <sql028_A>
+    <text>工作组人员插入</text>
+    <sql>
+      insert into T_JK_GZZ_CZY(YLJGBM, GZZBM, CZY, JKDA_CZY, BZ, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER) values ('{YLJGBM}', '{GZZBM}', '{CZY}', '{JKDA_CZY}', '{BZ}', '{CREATETIME}', '{CREATEUSER}', '{UPDATETIME}', '{UPDATEUSER}')
+    </sql>
+  </sql028_A>
+
+  <sql029_A>
+    <text>工作组人员删除</text>
+    <sql>
+      delete from  T_JK_GZZ_CZY where id={id}
+    </sql>
+  </sql029_A>
+
+  <sql030_A>
+    <text>条形码查询</text>
+    <sql>
+      SELECT T_JK_TM.*, T_JK_LisItemClass.ybName
+      FROM T_JK_TM left JOIN T_JK_LisItemClass ON (T_JK_TM.SQXMDH = T_JK_LisItemClass.ClassCode) AND (T_JK_TM.YLJGBM = T_JK_LisItemClass.YYBM) where 1=1 {0}
+    </sql>
+  </sql030_A>
+
+  <sql031_A>
+    <text>条形码更新</text>
+    <sql>
+      update T_JK_TM set YLJGBM='{YLJGBM}', TMBM='{TMBM}', TMMC='{TMMC}', DYCX='{DYCX}', SFDY='{SFDY}', FL='{FL}', BZ='{BZ}', CREATETIME='{CREATETIME}', CREATEUSER='{CREATEUSER}', UPDATETIME='{UPDATETIME}', UPDATEUSER='{UPDATEUSER}', SQXMDH='{SQXMDH}' where YLJGBM='{YLJGBM}' and TMBM='{TMBM}'
+    </sql>
+  </sql031_A>
+
+  <sql032_A>
+    <text>条形码插入</text>
+    <sql>
+      insert into T_JK_TM(YLJGBM, TMBM, TMMC, DYCX, SFDY, FL, BZ, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER, SQXMDH) values('{YLJGBM}', '{TMBM}', '{TMMC}', '{DYCX}', '{SFDY}', '{FL}', '{BZ}', '{CREATETIME}', '{CREATEUSER}', '{UPDATETIME}', '{UPDATEUSER}', '{SQXMDH}')
+    </sql>
+  </sql032_A>
+
+  <sql033_A>
+    <text>条形码删除</text>
+    <sql>
+      delete from  T_JK_TM where  YLJGBM='{YLJGBM}' and TMBM='{TMBM}'
+    </sql>
+  </sql033_A>
+
+  <sql_select_tjry_txm_A>
+    <text>查询条码号</text>
+    <sql>
+      SELECT distinct * FROM view_tjry_txm where SFDY='1' {0}
+    </sql>
+  </sql_select_tjry_txm_A>
+
+  <sql_get_tjry_txm_A>
+    <text>查询条码号</text>
+    <sql>
+      SELECT  jkdah  FROM t_jk_tjry_txm where  yljgbm='{0}' and  jkdah = '{1}'
+      union all
+      SELECT jkdah  FROM view_tjry_txm where  yljgbm='{0}' and TXMBH = '{1}'
+    </sql>
+  </sql_get_tjry_txm_A>
+  
+  <sql034_A>
+    <text>医疗机构查询</text>
+    <sql>
+      SELECT T_TJ_YLJG_XIANGZHEN.ID, T_TJ_YLJG_XIANGZHEN.YLJGBM, XT_GG_SYDW.MC, T_TJ_YLJG_XIANGZHEN.XZBM, T_BS_XIANGZHEN.B_NAME, T_TJ_YLJG_XIANGZHEN.BZ, T_TJ_YLJG_XIANGZHEN.YLJGBM_JK, T_TJ_YLJG_XIANGZHEN.CREATETIME, T_TJ_YLJG_XIANGZHEN.CREATEUSER, T_TJ_YLJG_XIANGZHEN.UPDATETIME, T_TJ_YLJG_XIANGZHEN.UPDATEUSER
+      FROM (T_TJ_YLJG_XIANGZHEN  left  JOIN XT_GG_SYDW ON T_TJ_YLJG_XIANGZHEN.YLJGBM = XT_GG_SYDW.BM)  left  JOIN T_BS_XIANGZHEN ON T_TJ_YLJG_XIANGZHEN.XZBM = T_BS_XIANGZHEN.B_RGID
+      where 1=1 {0}
+    </sql>
+  </sql034_A>
+
+  <sql035_A>
+    <text>医疗机构更新</text>
+    <sql>
+      update T_TJ_YLJG_XIANGZHEN set YLJGBM='{YLJGBM}', XZBM='{XZBM}', BZ='{BZ}', CREATETIME='{CREATETIME}', CREATEUSER='{CREATEUSER}', UPDATETIME='{UPDATETIME}', UPDATEUSER='{UPDATEUSER}', YLJGBM_JK='{YLJGBM_JK}' where id={id}
+    </sql>
+  </sql035_A>
+
+  <sql036_A>
+    <text>医疗机构插入</text>
+    <sql>
+      insert into T_TJ_YLJG_XIANGZHEN(YLJGBM, XZBM, BZ, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER, YLJGBM_JK) values ('{YLJGBM}', '{XZBM}', '{BZ}', '{CREATETIME}', '{CREATEUSER}', '{UPDATETIME}', '{UPDATEUSER}', '{YLJGBM_JK}')
+    </sql>
+  </sql036_A>
+
+  <sql037_A>
+    <text>医疗机构删除</text>
+    <sql>
+      delete from  T_TJ_YLJG_XIANGZHEN where  id={id}
+    </sql>
+  </sql037_A>
+
+  <sql038_A>
+    <text>检索医院对应的村庄</text>
+    <sql>
+      SELECT YLJGBM, T_BS_XIANGZHEN.B_RGID as xzbm, T_BS_XIANGZHEN.B_NAME as xzmc, T_BS_CUNZHUANG.B_RGID as czbm, T_BS_CUNZHUANG.B_NAME as czmc
+      FROM T_TJ_YLJG_XIANGZHEN INNER JOIN (T_BS_XIANGZHEN INNER JOIN T_BS_CUNZHUANG ON T_BS_XIANGZHEN.B_RGID =left(T_BS_CUNZHUANG.B_RGID,8)) ON T_TJ_YLJG_XIANGZHEN.XZBM = T_BS_XIANGZHEN.B_RGID
+      where 1=1 {0} order by T_BS_CUNZHUANG.B_NAME
+    </sql>
+  </sql038_A>
+
+
+  <sql039_A>
+    <text>取得医疗机构编码</text>
+    <sql>
+      SELECT Xt_gg_sydw.bm, Xt_gg_sydw.mc FROM Xt_gg_sydw where 1=1 {0}
+    </sql>
+  </sql039_A>
+
+  <sql040_A>
+    <text>取得档案列表</text>
+    <sql>
+      SELECT ID, D_XM  as  姓名, D_SFZH   as 身份证号, D_LXDH   as 联系电话, D_XXDZ   as 地址, D_GRDABH as 档案编号, D_JTDABH  as  健康体检号 FROM T_DA_JKDA_RKXZL where 1=1 {0}
+    </sql>
+  </sql040_A>
+
+  <sql050_A>
+    <text>取得档案列表（登记）</text>
+    <sql>
+      SELECT  id,IIf(zt='1','已登记','') AS ztName, D_XM,d_xb,XBName, D_LXDH,D_CSRQ , D_SFZH  , D_GRDABH , TJSJ,zt, T_DA_JKDA_RKXZL.diseases ,CZY,sxh_dj,TJBM,YLJGBM,nd,nl FROM view_ryxx_dj where 1=1 {0}
+    </sql>
+  </sql050_A>
+  
+  <sql041_A>
+    <text>取得档案信息(全项目)</text>
+    <sql>
+      SELECT ID, D_GRDABH, D_JTDABH, D_XM, D_SFZH, D_YHZGX, D_GZDW, D_LXDH, D_EMAIL, D_SHENG, D_SHI, D_QU, D_JD, D_JWH, D_XXDZ, D_SSPQ, D_JZZK, D_XB, D_CSRQ, D_MZ, D_WHCD, D_ZY, D_HYZK, D_YLFZFLX, D_YLBXH, D_XNHH, D_PYJM, P_RGID, CREATETIME, UPDATETIME, HAPPENTIME, CREATEUSER, UPDATEUSER, CREATREGION, D_LXRXM, D_LXRDH, D_YLFZFLXQT, L_HYQK, L_YC, L_YCSC, L_CC, L_CCSC, QDQXZ, CFPQSB, RLLX, YS, CS, QXL, D_ZJLX, D_ZJHQT, D_JTDABH_NEW, D_GRDABH_NEW, D_DALB, D_DAZT, D_DAZTYY, PASSWORD, D_ZHUXIAO, ZT, D_HZSFZH
+      FROM T_DA_JKDA_RKXZL where 1=1 {0}
+    </sql>
+  </sql041_A>
+
+  <sql042_A>
+    <text>新增体检结果 到化验结果表(T_JK_lis_result_re）</text>
+    <sql>
+      insert into T_JK_lis_result_re (yybm,yq, jyrq, ybh, xmdh, xmmc, result, lowerValue, heightValue) values('{yybm}','{yq}', '{jyrq}', '{ybh}', '{xmdh}', '{xmmc}', '{result}', '{lowerValue}', '{heightValue}')
+    </sql>
+  </sql042_A>
+
+  <sql_lis_result_clear_A>
+    <text>更新体检结果 到化验结果表(T_JK_lis_result_re）</text>
+    <sql>
+      update T_JK_lis_result_re set testno='{testno}',nd='{nd}' where yybm='{yybm}' and yq='{yq}' and ybh='{ybh}' and jyrq='{jyrq}'
+    </sql>
+  </sql_lis_result_clear_A>
+  
+  <sql044_A>
+    <text>项目与lis对应 关系检索</text>
+    <sql>
+      SELECT ID, YLJGBM, XMBM, XMBM_LIS, BZ, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER FROM T_JK_LIS_XM where 1=1  {0}
+    </sql>
+  </sql044_A>
+
+  <sql045_A>
+    <text>按照对应关系取得体检项目结果</text>
+    <sql>
+      SELECT
+      T_JK_lis_result_re.yybm,
+      T_JK_lis_result_re.yq,
+      T_JK_lis_result_re.jyrq,
+      T_JK_lis_result_re.ybh,
+      T_JK_lis_result_re.xmdh,
+      T_JK_lis_result_re.xmmc,
+      T_JK_lis_result_re.result,
+      T_JK_lis_result_re.result1,
+      T_JK_lis_result_re.lowerValue,
+      T_JK_lis_result_re.heightValue,
+      T_JK_TJXM.HIS_DB,
+      T_JK_TJXM.JKDA_DB,
+      T_JK_TJXM.KJID,
+      T_JK_TJXM.XMMC
+      FROM (T_JK_lis_result_re INNER JOIN T_JK_LIS_XM ON (T_JK_lis_result_re.xmdh = T_JK_LIS_XM.XMBM_LIS) AND (T_JK_lis_result_re.yybm = T_JK_LIS_XM.YLJGBM))
+      INNER JOIN T_JK_TJXM ON T_JK_LIS_XM.XMBM = T_JK_TJXM.XMBM
+      where 1=1 {0}
+    </sql>
+  </sql045_A>
+  <sql046_A>
+    <text>化验结果表(T_JK_lis_result_re） 从仪器中取得的数据</text>
+    <sql>
+      SELECT * FROM T_JK_lis_result_re where 1=1 {0}
+    </sql>
+  </sql046_A>
+  <sql047_A>
+    <text>插入尿常规结果</text>
+    <sql>
+      insert into T_JK_JKTJ(D_GRDABH,HAPPENTIME,[guid],czy,gzz,G_NDB,G_NT,G_NTT,G_NQX)values('{D_GRDABH}','{HAPPENTIME}','{guid}','{czy}','{gzz}','{G_NDB}','{G_NT}','{G_NTT}','{G_NQX}')
+    </sql>
+  </sql047_A>
+  
+  <sql048_A>
+    <text>更新尿常规结果到 健康体检信息表(T_JK_JKTJ）</text>
+    <sql>
+      update T_JK_JKTJ set G_NDB='{G_NDB}',G_NT='{G_NT}',G_NTT='{G_NTT}',G_NQX='{G_NQX}' where [guid]='{guid}'
+    </sql>
+  </sql048_A>
+
+
+  <sql049_A>
+    <text>化验结果人员对应关系检索</text>
+    <sql>
+      SELECT yybm, yq, jyrq, ybh,  XM, iif(XB='2','女', iif(XB='1','男','')) as XB,SFZH,iif( XM is null ,0 ,1)   as saveFlag
+      FROM
+      T_JK_lis_result_re left JOIN T_JK_TJRYXX ON (T_JK_lis_result_re.SFH = T_JK_TJRYXX.SFH) AND (T_JK_lis_result_re.TJPCH = T_JK_TJRYXX.TJPCH) AND (T_JK_lis_result_re.yybm = T_JK_TJRYXX.YLJGBM)
+      where 1=1 {0}
+      group by
+      yybm, yq, jyrq, ybh, XM, XB,SFZH
+    </sql>
+  </sql049_A>
+  
+  <sql_lis_result_ryxx_select_A>
+    <text>化验结果人员对应关系检索</text>
+    <sql>
+      select yybm, yq, jyrq, ybh,  XM, iif(XB='2','女', iif(XB='1','男','')) as XB,T_JK_TJRY_TXM.SFZH,iif( T_JK_lis_result_re.testno is null or T_JK_lis_result_re.testno='',0 ,1)   as saveFlag,testno,TXMBH,T_JK_TJRY_TXM.JKDAH
+      from  (T_JK_lis_result_re  left join T_JK_TJRY_TXM on T_JK_lis_result_re.yybm=T_JK_TJRY_TXM.YLJGBM
+      and T_JK_lis_result_re.testno=T_JK_TJRY_TXM.TXMBH  and T_JK_lis_result_re.nd=T_JK_TJRY_TXM.nd)
+      left join  T_JK_TJRYXX  on T_JK_TJRYXX.YLJGBM=T_JK_TJRY_TXM.YLJGBM and T_JK_TJRYXX.JKDAH=T_JK_TJRY_TXM.JKDAH  and T_JK_TJRYXX.nd=T_JK_TJRY_TXM.nd
+      where 1=1  {0}
+    </sql>
+  </sql_lis_result_ryxx_select_A>
+
+  <sql_lis_result_ryxx_update_A>
+    <text>更新体检结果 到化验结果表(T_JK_lis_result_re）</text>
+    <sql>
+      update T_JK_lis_result_re set testno='{testno}',nd={nd} where yybm='{yybm}' and yq='{yq}' and ybh='{ybh}' and jyrq='{jyrq}'
+    </sql>
+  </sql_lis_result_ryxx_update_A>
+  
+  <sql051_A>
+    <text>省</text>
+    <sql>
+      SELECT * FROM T_BS_SHENG where 1=1 {0}
+    </sql>
+  </sql051_A>
+  <sql052_A>
+    <text>市</text>
+    <sql>
+      SELECT * FROM T_BS_SHI where 1=1 {0}
+    </sql>
+  </sql052_A>
+  <sql053_A>
+    <text>县</text>
+    <sql>
+      SELECT * FROM T_BS_XIAN where 1=1 {0}
+    </sql>
+  </sql053_A>
+  <sql054_A>
+    <text>镇</text>
+    <sql>
+      SELECT * FROM T_BS_XIANGZHEN where 1=1 {0}
+    </sql>
+  </sql054_A>
+  <sql055_A>
+    <text>村</text>
+    <sql>
+      SELECT * FROM T_BS_CUNZHUANG where 1=1 {0}
+    </sql>
+  </sql055_A>
+  <sql056_A>
+    <text>健康档案人口学资料（T_DA_JKDA_RKXZL）</text>
+    <sql>
+      SELECT * FROM T_DA_JKDA_RKXZL where 1=1 {0}
+    </sql>
+  </sql056_A>
+  <sql057_A>
+    <text>家庭档案表（T_DA_JTDA）</text>
+    <sql>
+      SELECT * FROM T_DA_JTDA where 1=1 {0}
+    </sql>
+  </sql057_A>
+  <sql058_A>
+    <text>个人健康特征表（T_DA_JKDA_GRJKTZ）</text>
+    <sql>
+      SELECT * FROM T_DA_JKDA_GRJKTZ where 1=1 {0}
+    </sql>
+  </sql058_A>
+  <sql059_A>
+    <text>健康档案健康状况家族病史表（T_DA_JKDA_JKZK_JZBS）</text>
+    <sql>
+      SELECT * FROM T_DA_JKDA_JKZK_JZBS where 1=1 {0}
+    </sql>
+  </sql059_A>
+  <sql060_A>
+    <text>健康档案健康状况既往病史表（T_DA_JKDA_JKZK_JWBS）</text>
+    <sql>
+      SELECT * FROM T_DA_JKDA_JKZK_JWBS where 1=1 {0}
+    </sql>
+  </sql060_A>
+  <sql061_A>
+    <text>健康档案健康状况表（T_DA_JKDA_JKZK）</text>
+    <sql>
+      SELECT * FROM T_DA_JKDA_JKZK where 1=1 {0}
+    </sql>
+  </sql061_A>
+  <sql062_A>
+    <text>健康档案生活习惯表（T_DA_JKDA_SHXG）</text>
+    <sql>
+      SELECT * FROM T_DA_JKDA_SHXG where 1=1 {0}
+    </sql>
+  </sql062_A>
+
+  <SQL063_TJZT_UPDATE_A>
+    <text>更新人口学登记状态</text>
+    <sql>
+      update T_JK_TJZT set zt='1',tjsj='{tjsj}',sxh_dj='{sxh_dj}',CZY='{CZY}' where YLJGBM='{YLJGBM}' and JKDAH='{JKDAH}' and ND='{ND}' and TJTYPE='0' and SFZH='{SFZH}'
+    </sql>
+  </SQL063_TJZT_UPDATE_A>
+
+  <SQL063_TJZT_INSERT_A>
+    <text>增加人口学登记状态</text>
+    <sql>
+      insert into T_JK_TJZT(YLJGBM,JKDAH,XM,SFZH,ND,TJSJ,Tjys,CZY,TJTYPE,ZT,sxh_dj)values('{YLJGBM}','{D_GRDABH}','{D_XM}','{D_SFZH}','{ND}','{TJSJ}','{CZY}','{CZY}','0','1','{sxh_dj}')
+    </sql>
+  </SQL063_TJZT_INSERT_A>
+  
+  <SQL063_TJZT_MAXSXH_A>
+    <text>获取最大顺序号码</text>
+    <sql>
+      select max(sxh_dj)  as sxh_dj from T_JK_TJZT where 1=1 {0}
+    </sql>
+  </SQL063_TJZT_MAXSXH_A>
+  
+  <sql064_A>
+    <text>中医保健指导</text>
+    <sql>
+      SELECT id, YYBM, ZYTZ, QZTS, YSTY, QJTS, YDBJ, XWBJ,QT, QTZD, TZBZ,  (iif(QZTS='1','1','')+','+iif(YSTY='1','2','')+','+iif(QJTS='1','3','')+','+iif(YDBJ='1','4','')+','+iif(XWBJ='1','5','')+','+iif(QT='1','6','')) as zd FROM T_JK_ZYBJZD where 1=1  {0}
+    </sql>
+  </sql064_A>
+
+  <sql065_A>
+    <text>lis项目与体检项目对应</text>
+    <sql>
+      SELECT T_JK_TJXM.KJID, T_JK_LIS_XM.XMBM_LIS, T_JK_LIS_XM.YLJGBM, T_JK_LIS_XM.BZ,T_JK_LIS_XM.XMBM
+      FROM T_JK_TJXM INNER JOIN T_JK_LIS_XM ON T_JK_TJXM.XMBM = T_JK_LIS_XM.XMBM
+      where 1=1  {0}
+    </sql>
+  </sql065_A>
+  <sql066_A>
+    <text>获取上次体检结果（健康体检）</text>
+    <sql>
+      SELECT * FROM T_JK_JKTJ_TMP where 1=1  {0}
+    </sql>
+  </sql066_A>
+
+  <sql067_A>
+    <text>新建档案（人口资料学）</text>
+    <sql>
+      insert into T_DA_JKDA_RKXZL(D_GRDABH, D_JTDABH, D_XM, D_SFZH, D_YHZGX, D_GZDW, D_LXDH, D_EMAIL, D_SHENG, D_SHI, D_QU, D_JD, D_JWH, D_XXDZ, D_SSPQ, D_JZZK, D_XB, D_CSRQ, D_MZ, D_WHCD, D_ZY, D_HYZK, D_YLFZFLX, D_YLBXH, D_XNHH, D_PYJM, P_RGID, CREATETIME, UPDATETIME, HAPPENTIME, CREATEUSER, UPDATEUSER, CREATREGION, D_LXRXM, D_LXRDH, D_YLFZFLXQT, L_HYQK, L_YC, L_YCSC, L_CC, L_CCSC, QDQXZ, CFPQSB, RLLX, YS, CS, QXL, D_ZJLX, D_ZJHQT, D_JTDABH_NEW, D_GRDABH_NEW, D_DALB, D_DAZT, D_DAZTYY, [PASSWORD], D_ZHUXIAO, ZT, D_HZSFZH, diseases, zlbz, nd,sczt,nl,isnewdoc)
+      values ('{D_GRDABH}', '{D_JTDABH}', '{D_XM}', '{D_SFZH}', '{D_YHZGX}', '{D_GZDW}', '{D_LXDH}', '{D_EMAIL}', '{D_SHENG}', '{D_SHI}', '{D_QU}', '{D_JD}', '{D_JWH}', '{D_XXDZ}', '{D_SSPQ}', '{D_JZZK}', '{D_XB}', '{D_CSRQ}', '{D_MZ}', '{D_WHCD}', '{D_ZY}', '{D_HYZK}', '{D_YLFZFLX}', '{D_YLBXH}', '{D_XNHH}', '{D_PYJM}', '{P_RGID}', '{CREATETIME}', '{UPDATETIME}', '{HAPPENTIME}', '{CREATEUSER}', '{UPDATEUSER}', '{CREATREGION}', '{D_LXRXM}', '{D_LXRDH}', '{D_YLFZFLXQT}', '{L_HYQK}', '{L_YC}', '{L_YCSC}', '{L_CC}', '{L_CCSC}', '{QDQXZ}', '{CFPQSB}', '{RLLX}', '{YS}', '{CS}', '{QXL}', '{D_ZJLX}', '{D_ZJHQT}', '{D_JTDABH_NEW}', '{D_GRDABH_NEW}', '{D_DALB}', '{D_DAZT}', '{D_DAZTYY}', '{PASSWORD}', '{D_ZHUXIAO}', '{ZT}', '{D_HZSFZH}', '{diseases}', '{zlbz}', '{nd}','0','{NL}','{isnewdoc}')
+    </sql>
+  </sql067_A>
+
+  <sql068_A>
+    <text>更新档案（人口资料学）</text>
+    <sql>
+      update T_DA_JKDA_RKXZL set  D_JTDABH='{D_JTDABH}', D_XM='{D_XM}', D_SFZH='{D_SFZH}', D_YHZGX='{D_YHZGX}', D_GZDW='{D_GZDW}', D_LXDH='{D_LXDH}', D_EMAIL='{D_EMAIL}',
+      D_SHENG='{D_SHENG}', D_SHI='{D_SHI}', D_QU='{D_QU}', D_JD='{D_JD}', D_JWH='{D_JWH}', D_XXDZ='{D_XXDZ}', D_SSPQ='{D_SSPQ}', D_JZZK='{D_JZZK}', D_XB='{D_XB}',
+      D_CSRQ='{D_CSRQ}', D_MZ='{D_MZ}', D_WHCD='{D_WHCD}', D_ZY='{D_ZY}', D_HYZK='{D_HYZK}', D_YLFZFLX='{D_YLFZFLX}', D_YLBXH='{D_YLBXH}', D_XNHH='{D_XNHH}', D_LXRXM='{D_LXRXM}',
+      D_LXRDH='{D_LXRDH}', D_YLFZFLXQT='{D_YLFZFLXQT}', D_JTDABH_NEW='{D_JTDABH_NEW}', D_GRDABH_NEW='{D_GRDABH_NEW}',
+      D_DALB='{D_DALB}', D_DAZT='{D_DAZT}', ZT={ZT}, D_HZSFZH='{D_HZSFZH}', diseases='{diseases}', nd ='{nd}', nl ='{nl}'
+      ,P_RGID='{P_RGID}', CREATETIME='{CREATETIME}', UPDATETIME='{UPDATETIME}', HAPPENTIME='{HAPPENTIME}', CREATEUSER='{CREATEUSER}', UPDATEUSER='{UPDATEUSER}', CREATREGION='{CREATREGION}'
+      where D_GRDABH='{D_GRDABH}'
+    </sql>
+  </sql068_A>
+
+  <sql_select_TJRYXX_A>
+    <text>体检人员信息表</text>
+    <sql>
+      select * from T_JK_TJRYXX where 1=1  {0}
+    </sql>
+  </sql_select_TJRYXX_A>
+  
+  <sql_update_TJRYXX_A>
+    <text>再修改档案时，修改体检人员信息表</text>
+    <sql>
+      update T_JK_TJRYXX  set XM='{XM}',XB='{XB}',SFZH='{SFZH}',LXDH='{LXDH}',CSRQ='{CSRQ}',CZBM='{CZBM}',UPDATETIME='{UPDATETIME}',UPDATEUSER='{UPDATEUSER}',fl='{fl}',zlbz='{zlbz}' where YLJGBM='{YLJGBM}' and JKDAH='{JKDAH}' and nd='{nd}'
+    </sql>
+  </sql_update_TJRYXX_A>
+  
+  <sql_ryxx_main_list_A>
+    <text>获取体检人员的列表，左侧菜单</text>
+    <sql>
+      select distinct * from (
+      SELECT YLJGBM,TJJHBM,TJPCH,SFH,SXHM,TJBM,JKDAH,XM,XB,SFZH,LXDH,CSRQ,CZBM,FL,BZ,TJBH_TEM,SCZT,ZLBZ,nd,PRgID,GZZBM_dj,TJSJ_dj,czy_dj,ZT_dj,tjys_dj,GZZBM_jktj,TJSJ_jktj,czy_jktj,ZT_jktj,tjys_jktj,GZZBM_zytz,TJSJ_zytz,czy_zytz,ZT_zytz,tjys_zytz,GZZBM_nlpg,TJSJ_nlpg,czy_nlpg,ZT_nlpg,tjys_nlpg,'' as DisplayMember ,'' as ValueMember from 
+(
+SELECT  t.YLJGBM, t.TJJHBM, t.TJPCH, t.SFH, t.SXHM, t.TJBM, t.JKDAH, t.XM, t.XB, t.SFZH, t.LXDH, t.CSRQ, t.CZBM, t.FL, t.BZ, t.TJBH_TEM, t.SCZT, t.ZLBZ, t.nd, t.PRgID, zt_dj.GZZBM AS GZZBM_dj, zt_dj.TJSJ AS TJSJ_dj, zt_dj.CZY AS czy_dj, zt_dj.ZT AS ZT_dj, zt_dj.tjys AS tjys_dj, zt_jktj.GZZBM AS GZZBM_jktj, zt_jktj.TJSJ AS TJSJ_jktj, zt_jktj.CZY AS czy_jktj, zt_jktj.ZT AS ZT_jktj, zt_jktj.tjys AS tjys_jktj, zt_zytz.GZZBM AS GZZBM_zytz, zt_zytz.TJSJ AS TJSJ_zytz, zt_zytz.CZY AS czy_zytz, zt_zytz.ZT AS ZT_zytz, zt_zytz.tjys AS tjys_zytz, zt_nlpg.GZZBM AS GZZBM_nlpg, zt_nlpg.TJSJ AS TJSJ_nlpg, zt_nlpg.CZY AS czy_nlpg, zt_nlpg.ZT AS ZT_nlpg, zt_nlpg.tjys AS tjys_nlpg
+FROM (((T_JK_TJRYXX AS t LEFT JOIN (select * from  T_JK_TJZT where TJTYPE='0')  AS zt_dj ON (t.YLJGBM = zt_dj.YLJGBM) AND (t.JKDAH = zt_dj.JKDAH)) LEFT JOIN (select * from  T_JK_TJZT where TJTYPE='1')  AS zt_jktj ON (t.YLJGBM = zt_jktj.YLJGBM) AND (t.JKDAH = zt_jktj.JKDAH)) LEFT JOIN (select * from  T_JK_TJZT where TJTYPE='2')  AS zt_zytz ON (t.YLJGBM = zt_zytz.YLJGBM) AND (t.JKDAH = zt_zytz.JKDAH)) LEFT JOIN (select * from  T_JK_TJZT where TJTYPE='3')  AS zt_nlpg ON (t.YLJGBM = zt_nlpg.YLJGBM) AND (t.JKDAH = zt_nlpg.JKDAH)
+)
+view_ryxx_tem
+     ) tem
+      where 1=1    {0}
+    </sql>
+  </sql_ryxx_main_list_A>
+  
+  <sql_LIS_list_A>
+    <text>获取lis检验人员的列表，左侧菜单</text>
+    <sql>
+      SELECT  t.YLJGBM,TJJHBM,TJPCH,SFH,SXHM,TJBM,t.JKDAH,t.XM,t.XB,t.SFZH,LXDH,CSRQ,CZBM,FL,t.BZ,TJBH_TEM,SCZT,t.ZLBZ,t.nd,PRgID,TXMBH,'' as DisplayMember,'' as ValueMember
+      FROM (T_JK_TJRYXX AS t LEFT JOIN T_JK_TJRY_TXM AS TXM ON (t.YLJGBM = TXM.yljgbm) AND (t.JKDAH = TXM.jkdah) AND (t.nd = TXM.nd)) LEFT JOIN [select * from T_JK_TJZT where TJTYPE='1']. AS tjzt ON (t.JKDAH=tjzt.JKDAH) AND (t.YLJGBM=tjzt.YLJGBM)
+      where  1=1  {0}
+      group by t.YLJGBM,TJJHBM,TJPCH,SFH,SXHM,TJBM,t.JKDAH,t.XM,t.XB,t.SFZH,LXDH,CSRQ,CZBM,FL,t.BZ,TJBH_TEM,SCZT,t.ZLBZ,t.nd,PRgID,TXMBH
+    </sql>
+  </sql_LIS_list_A>
+  
+  <sql070_A>
+    <text>检验申请主表</text>
+    <sql>
+      select * from lis_reqmain where 1=1  {0}
+    </sql>
+  </sql070_A>
+
+  <sql071_A>
+    <text>检验申请项目表</text>
+    <sql>
+      select * from lis_reqdetail where 1=1  {0}
+    </sql>
+  </sql071_A>
+
+  <sql072_A>
+    <text>获取最大的顺序番号</text>
+    <sql>
+      SELECT  Max(SXHM) as SXHM  FROM T_JK_TJRYXX where  1=1 {0}  group by SXHM
+    </sql>
+  </sql072_A>
+  
+  <!--<sql073_A>
+    <text>增加体检人员信息</text>
+    <sql>
+      insert into T_JK_TJRYXX (YLJGBM,TJJHBM,TJPCH,sfh,SXHM,TJBM,JKDAH,XM,XB,SFZH,LXDH,CSRQ,CZBM,FL,BZ,TJBH_TEM,CREATETIME,CREATEUSER,UPDATETIME,UPDATEUSER,SCZT,ZLBZ,nd,prgid,ISSH,ISNEWDOC)values('{YLJGBM}','{TJJHBM}','{TJPCH}',{SFH},{SXHM},'{TJBM}','{JKDAH}','{XM}','{XB}','{SFZH}','{LXDH}','{CSRQ}','{CZBM}','{FL}','{BZ}','{TJBH_TEM}','{CREATETIME}','{CREATEUSER}','{UPDATETIME}','{UPDATEUSER}','{SCZT}','{ZLBZ}','{nd}','{prgid}','{ISSH}','{ISNEWDOC}')
+    </sql>
+  </sql073_A>-->
+  
+  <sql_add_people_A>
+    <text>增加体检人员信息</text>
+    <sql>
+      insert into T_JK_TJRYXX (YLJGBM,TJJHBM,TJPCH,sfh,SXHM,TJBM,JKDAH,XM,XB,SFZH,LXDH,CSRQ,CZBM,FL,BZ,TJBH_TEM,CREATETIME,CREATEUSER,UPDATETIME,UPDATEUSER,SCZT,ZLBZ,nd,prgid,ISSH,ISNEWDOC)values('{YLJGBM}','{TJJHBM}','{TJPCH}',{SFH},{SXHM},'{TJBM}','{JKDAH}','{XM}','{XB}','{SFZH}','{LXDH}','{CSRQ}','{CZBM}','{FL}','{BZ}','{TJBH_TEM}','{CREATETIME}','{CREATEUSER}','{UPDATETIME}','{UPDATEUSER}','{SCZT}','{ZLBZ}','{nd}','{prgid}','{ISSH}','{ISNEWDOC}')
+    </sql>
+  </sql_add_people_A>
+
+  <sql_add_people_txm_A>
+    <text>增加体检人员与条码对应关系</text>
+    <sql>
+      insert into T_JK_TJRY_TXM( YLJGBM, TXMBH, TMBM, JKDAH, SFZH, BZ, ZLBZ, nd) values(  '{YLJGBM}', '{TXMBH}', '{TMBM}', '{JKDAH}', '{SFZH}', '{BZ}', '{ZLBZ}', '{nd}')
+    </sql>
+  </sql_add_people_txm_A>
+  
+  <sql_select_people_txm_A>
+    <text>获取人员的条码号</text>
+    <sql>
+      select * from  T_JK_TJRY_TXM where 1=1 {0}
+    </sql>
+  </sql_select_people_txm_A>
+  
+  <sql074_A>
+    <text>lis主表插入</text>
+    <sql>
+      insert into lis_reqmain(SQH, KSDH, SQYS, SQSJ, JSYS, JSSJ, ZT, JJZT, BRLY, BRDH, BRXM, BRXB, BRSR, BZ1, BZ2, BZ3, JZBZ, TXM, CH, YBLX, ZXYS, ZXSJ, BGDDH, COSTS, NL, NLDW, ZD, CYSJ, CKSJ, CKZJ, CKYH, yybm, datafrom, zlbz,jkdah,nd)
+      values ('{SQH}', '{KSDH}', '{SQYS}', '{SQSJ}', '{JSYS}', '{JSSJ}', '{ZT}', '{JJZT}', '{BRLY}', '{BRDH}', '{BRXM}', '{BRXB}', '{BRSR}', '{BZ1}', '{BZ2}', '{BZ3}', '{JZBZ}', '{TXM}', '{CH}', '{YBLX}', '{ZXYS}', '{ZXSJ}', '{BGDDH}', 0{COSTS}, 0{NL}, '{NLDW}', '{ZD}', '{CYSJ}', '{CKSJ}', '{CKZJ}', '{CKYH}', '{yybm}', '{datafrom}', '{zlbz}','{jkdah}','{nd}')
+    </sql>
+  </sql074_A>
+  
+  <sql075_A>
+    <text>lis_reqdetail明细表插入</text>
+    <sql>
+      insert into LIS_REQDETAIL (SQH, XH, SQXMDH, SQXMMC, SL, DJ, ZT, JJZT, BZ1, BZ2, COSTS, NUMBK1, NUMBK2, DTBK1, DTBK2, yybm, datafrom, zlbz)
+      values ('{SQH}', 0{XH}, '{SQXMDH}', '{SQXMMC}', '{SL}', '{DJ}', '{ZT}', '{JJZT}', '{BZ1}', '{BZ2}', 0{COSTS}, 0{NUMBK1}, 0{NUMBK2}, '{DTBK1}', '{DTBK2}', '{yybm}', '{datafrom}', '{zlbz}')
+    </sql>
+  </sql075_A>
+
+  <sql076_A>
+    <text>获取最大的顺番号</text>
+    <sql>
+      SELECT  Max(SfH) as SFH  FROM T_JK_TJRYXX where  1=1 {0}  
+    </sql>
+  </sql076_A>
+  
+  <sql077_A>
+    <text>完成化验后更新状态</text>
+    <sql>
+      update T_JK_TJRYXX set TJZT='1' ,TJSJ='{jyrq}'  where  1=1 and YLJGBM='{yybm}' and SFH={SFH} and TJPCH='{TJPCH}'
+    </sql>
+  </sql077_A>
+
+  <sql078_A>
+    <text>生成lis申请信息</text>
+    <sql>
+      SELECT T_JK_TM.YLJGBM, T_JK_TM.YLJGBM, T_JK_TM.TMBM, T_JK_TM.TMMC, T_JK_TM.SQXMDH, T_JK_LisItems.ITEM_CODE, T_JK_LisItems.ITEM_NAME
+      FROM (T_JK_TM INNER JOIN T_JK_LisItemClass_LisItems ON (T_JK_TM.YLJGBM = T_JK_LisItemClass_LisItems.YYBM) AND (T_JK_TM.SQXMDH = T_JK_LisItemClass_LisItems.ClassCode)) INNER JOIN T_JK_LisItems ON (T_JK_LisItemClass_LisItems.ITEM_CODE = T_JK_LisItems.ITEM_CODE) AND (T_JK_LisItemClass_LisItems.YYBM = T_JK_LisItems.YYBM)
+      where 1=1 {0}
+    </sql>
+  </sql078_A>
+
+  <sql079_A>
+    <text>删除lis_reqresult中的数据</text>
+    <sql>
+      delete from lis_reqresult where 1=1 {0}
+    </sql>
+  </sql079_A>
+  <sql080_A>
+    <text>增加lis_reqresult中的数据</text>
+    <sql>
+      insert into LIS_REQRESULT( TESTNO, SEQNO, ITEMNO, ITEMNAME, TESTRESULT, RESULT1, RESULT2,UNITS, RANGES, RESULTTIME, TESTMAN, CHECKMAN, INSTRUMENT, SAMPLENO, BRXM, yybm, datafrom,brdh,lastmodify)
+      values ('{TESTNO}', '{SEQNO}', '{ITEMNO}', '{ITEMNAME}', '{TESTRESULT}', '{RESULT1}', '{RESULT2}','{UNITS}', '{RANGES}', '{RESULTTIME}', '{TESTMAN}', '{CHECKMAN}', '{INSTRUMENT}', '{SAMPLENO}', '{BRXM}', '{yybm}', '{datafrom}','{brdh}','{lastmodify}')
+    </sql>
+  </sql080_A>
+
+  <sql081_A>
+    <text>更新体检人员信息的上传状态</text>
+    <sql>
+      update T_JK_TJRYXX set SCZT='1' where 1=1 {0}
+    </sql>
+  </sql081_A>
+  <sql082_A>
+    <text>更新档案状态信息</text>
+    <sql>
+      update T_DA_JKDA_RKXZL set ZT='2',sczt='1' where 1=1 {0}
+    </sql>
+  </sql082_A>
+
+  <sql_T_DA_JKDA_RKXZL_update_xm_A>
+    <text>更新档案中的姓名</text>
+    <sql>
+      update T_DA_JKDA_RKXZL set ZT=iif(zt='1','2',zt),sczt='1',D_XM='{D_XM}',D_LXDH=iif('{D_LXDH}'='',D_LXDH,'{D_LXDH}')  where D_GRDABH='{D_GRDABH}' and D_SFZH='{D_SFZH}'
+    </sql>
+  </sql_T_DA_JKDA_RKXZL_update_xm_A>
+  
+  <sql083_A>
+    <text>户主信息查询</text>
+    <sql>SELECT ID,D_XM, D_SFZH, D_XXDZ, D_CSRQ,D_ZJLX  FROM T_DA_JKDA_RKXZL  where D_YHZGX='1' {0} </sql>
+  </sql083_A>
+  
+  <sql_sqys_All_A>
+    <text>获取工作组中的医生</text>
+    <sql>
+      SELECT YLJGBM as YYBH, ysbm as BM, ysmc as XM ,'1' as xh FROM T_JK_sqys  where 1=1 {0}
+      union
+      SELECT XT_GG_CZY.YYBH, XT_GG_CZY.BM, XT_GG_CZY.XM ,'2'  as xh   FROM XT_GG_CZY  INNER JOIN T_JK_GZZ_CZY ON (XT_GG_CZY.BM = T_JK_GZZ_CZY.CZY) AND (XT_GG_CZY.YYBH = T_JK_GZZ_CZY.YLJGBM)
+      where  not exists (SELECT * FROM T_JK_sqys where  T_JK_GZZ_CZY.YLJGBM=T_JK_sqys.YLJGBM and T_JK_GZZ_CZY.CZY= T_JK_sqys.ysbm) {0}
+      order by xh
+    </sql>
+  </sql_sqys_All_A>
+  
+  <sql_sqys_default_A>
+    <text>获取设定的默认医生</text>
+    <sql>
+      SELECT YLJGBM as YYBH, ysbm as BM, ysmc as XM  FROM T_JK_sqys  where 1=1 {0}
+    </sql>
+  </sql_sqys_default_A>
+  
+  <sql085_A>
+    <text>所属机构</text>
+    <sql>
+      SELECT P_ID, P_RGID as B_RGID, P_RGNAME as B_NAME, P_RGLEVEL, P_REMARK, P_QYDW, P_STATE, P_RGID_MARKER, P_FUNCTIONARY, P_LINKMANE, P_CONTACT_TEL FROM T_PW_REGION where 1=1 {0} order by P_RGNAME
+    </sql>
+  </sql085_A>
+
+  <sql086_A>
+    <text>机构人员</text>
+    <sql>
+      SELECT P_ID, YLJGBM, P_FLAG, P_REMARK, P_TEL, P_MOBILEPHON, P_MAIL, P_JOB, P_DEPT, P_USER_NAME  as B_NAME , P_IDENTITY, P_USERPASSWORD, P_RGID, P_LOGINNAME, P_USERID  as B_RGID
+      FROM T_PW_USER where 1=1 {0} order by  P_USER_NAME
+    </sql>
+  </sql086_A>
+
+
+  <sql087_A>
+    <text>删除T_JK_xdResult中的数据</text>
+    <sql>
+      delete from T_JK_xdResult where 1=1 {0}
+    </sql>
+  </sql087_A>
+  <sql088_A>
+    <text>增加T_JK_xdResult中的数据</text>
+    <sql>
+      insert into T_JK_xdResult(YLJGBM, rq, sj, wjlx, jqxh, ajfh, id, xb, nl, xm, sg, tz, xy, yy, zz, bz, ys, xl, rr, pr, qrs, qt, qtc, deg, rv5, rv6, SV1, RS, dj, zddm, mnsdm, tm, nd, jkdabh)
+      values('{YLJGBM}', '{rq}', '{sj}', '{wjlx}', '{jqxh}', '{ajfh}', '{id}', '{xb}', '{nl}', '{xm}', '{sg}', '{tz}', '{xy}', '{yy}', '{zz}', '{bz}', '{ys}', '{xl}', '{rr}', '{pr}', '{qrs}', '{qt}', '{qtc}', '{deg}', '{rv5}', '{rv6}', '{SV1}', '{RS}', '{dj}', '{zddm}', '{mnsdm}', '{tm}', '{nd}', '{jkdabh}')
+    </sql>
+  </sql088_A>
+
+  <sql089_A>
+    <text>健康体检信息表(T_JK_JKTJ）</text>
+    <sql>
+      select * from T_JK_JKTJ where 1=1 {0}
+    </sql>
+  </sql089_A>
+  
+  <sql090_A>
+    <text>插入心电结果</text>
+    <sql>
+      insert into T_JK_JKTJ(D_GRDABH,HAPPENTIME,[guid],czy,gzz,G_XINDT,G_XINDTYI,XDTURL,G_MB,G_XINLV)values('{D_GRDABH}','{HAPPENTIME}','{guid}','{czy}','{gzz}','{G_XINDT}','{G_XINDTYI}','{XDTURL}','{G_MB}','{G_XINLV}')
+    </sql>
+  </sql090_A>
+
+  <sql091_A>
+    <text>更新心电结果到 健康体检信息表(T_JK_JKTJ）</text>
+    <sql>
+      update T_JK_JKTJ set G_XINDT='{G_XINDT}',G_XINDTYI='{G_XINDTYI}',XDTURL='{XDTURL}',G_MB='{G_MB}',G_XINLV='{G_XINLV}' where [guid]='{guid}'
+    </sql>
+  </sql091_A>
+
+  <sql092_A>
+    <text>心电图查询</text>
+    <sql>
+      SELECT  false as xz,  T_JK_TJRYXX.YLJGBM, T_JK_TJRYXX.JKDAH, T_JK_TJRYXX.XM, T_JK_TJRYXX.SFZH, T_JK_TJRYXX.TJZT, T_JK_TJRYXX.TJSJ, T_JK_TJRYXX.nd, T_JK_JKTJ.XDTURL,'' as xdtzt
+      FROM T_JK_TJRYXX left JOIN T_JK_JKTJ ON (T_JK_TJRYXX.TJSJ = T_JK_JKTJ.HAPPENTIME) AND (T_JK_TJRYXX.JKDAH = T_JK_JKTJ.D_GRDABH)
+      where 1=1 {0}
+    </sql>
+  </sql092_A>
+
+  <sql093_A>
+    <text>清除化验结果后更新状态</text>
+    <sql>
+      update T_JK_TJRYXX set TJZT='2' ,TJSJ=''  where  1=1 and YLJGBM='{yybm}' and SFH={SFH} and TJPCH='{TJPCH}'
+    </sql>
+  </sql093_A>
+  
+  <sql094_A>
+    <text>删除化验结果后更新状态</text>
+    <sql>
+      delete from T_JK_lis_result_re  where yybm='{yybm}' and yq='{yq}' and ybh='{ybh}' and jyrq='{jyrq}'
+    </sql>
+  </sql094_A>
+  
+  <sql095_A>
+    <text>删除体检人员信息</text>
+    <sql>
+      delete from T_JK_TJRYXX  where YLJGBM='{YLJGBM}' and JKDAH='{JKDAH}' and XM='{XM}' and nd='{nd}'
+    </sql>
+  </sql095_A>
+
+  <sql096_A>
+    <text>删除lis_reqresult结果</text>
+    <sql>
+      delete from lis_reqresult where 1=1 {0}
+    </sql>
+  </sql096_A>
+
+  <sql_select_lis_reqresult_A>
+    <text>获取lis_reqresult结果</text>
+    <sql>
+      select * from  lis_reqresult where 1=1 {0}
+    </sql>
+  </sql_select_lis_reqresult_A>
+  
+  <sql097_A>
+    <text>插入重点人群对应的条码结果</text>
+    <sql>
+      insert into T_JK_TM_zdRQ(YLJGBM,TMBM,ZDRQ,ZDRQJB,BZ) values('{YLJGBM}','{TMBM}','{ZDRQ}','{ZDRQJB}','{BZ}')
+    </sql>
+  </sql097_A>
+  <sql098_A>
+    <text>查询重点人群对应的条码信息</text>
+    <sql>
+      select YLJGBM,TMBM,ZDRQ,ZDRQJB,BZ from  T_JK_TM_zdRQ where 1=1 {0} order by zdrq,tmbm
+    </sql>
+  </sql098_A>
+  <sql099_A>
+    <text>删除重点人群对应的条码信息</text>
+    <sql>
+      delete from  T_JK_TM_zdRQ where  YLJGBM='{YLJGBM}' and TMBM='{TMBM}' and ZDRQ='{ZDRQ}'
+    </sql>
+  </sql099_A>
+  <sql100_A>
+    <text>获取重点人群对应的条码</text>
+    <sql>
+      SELECT  T_JK_TM.TMBM, TMMC FROM T_JK_TM_zdRQ inner join T_JK_TM  on  T_JK_TM_zdRQ.YLJGBM= T_JK_TM.YLJGBM  and T_JK_TM_zdRQ.TMBM=T_JK_TM.TMBM where 1=1 {0}
+    </sql>
+  </sql100_A>
+  
+  <sql101_A>
+    <text>更新lis申请单的状态</text>
+    <sql>
+      update  lis_reqmain set jzbz='1'  where 1=1 {0}
+    </sql>
+  </sql101_A>
+
+
+
+
+  <sql801_A>
+    
+    <text>删除体检信息的状态</text>
+    <sql>
+      delete from T_JK_TJZT where YLJGBM='{YLJGBM}' and JKDAH='{JKDAH}' and ND='{ND}' and GZZBM='{GZZBM}' and TJSJ='{TJSJ}' and CZY='{CZY}' and TJTYPE='{TJTYPE}'
+    </sql>
+  </sql801_A>
+
+
+  <sql802_A>
+    <text>插入体检信息的状态</text>
+    <sql>
+      insert into T_JK_TJZT (YLJGBM,JKDAH,XM,SFZH,ND,GZZBM,TJSJ,CZY,TJTYPE,ZT,Tjys)values( '{YLJGBM}','{JKDAH}','{XM}','{SFZH}','{ND}','{GZZBM}','{TJSJ}','{CZY}','{TJTYPE}','{ZT}','{Tjys}')
+    </sql>
+  </sql802_A>
+
+  <sql803_A>
+    <text>插入体检信息的状态</text>
+    <sql>
+      SELECT YLJGBM,TJJHBM,TJPCH,SFH,SXHM,TJBM,JKDAH,XM,XB,SFZH,LXDH,CSRQ,CZBM,FL,BZ,TJBH_TEM,SCZT,ZLBZ,nd,PRGID,ZT_jktj,ZT_jktj_name,ZT_tzbs,ZT_tzbs_name,ZT_zlpg,ZT_zlpg_name,ZT_dj,ZT_dj_name,
+      0 as xz,TJSJ_jktj,TJSJ_tzbs,TJSJ_zlpg,TJSJ_dj from view_ryxx_zt  where 1=1 {0}
+    </sql>
+  </sql803_A>
+
+  <sql_T_JK_SJSC_delete_A>
+    <text>删除上传状态表中的数据</text>
+    <sql>
+      delete  from T_JK_SJSC where YLJGBM='{YLJGBM}' and JKDAH='{JKDAH}' and ND='{ND}' and TJTYPE='{TJTYPE}'
+    </sql>
+  </sql_T_JK_SJSC_delete_A>
+  
+  <sql_T_JK_SJSC_insert_A>
+    <text>添加上传状态表中的数据</text>
+    <sql>
+      insert into T_JK_SJSC(YLJGBM,JKDAH,XM,SFZH,ND,SCSJ,CZY,TJTYPE,ZT) values ('{YLJGBM}','{JKDAH}','{XM}','{SFZH}','{ND}','{SCSJ}','{CZY}','{TJTYPE}','{ZT}')
+    </sql>
+  </sql_T_JK_SJSC_insert_A>
+
+  <sql_importDataSet_select_A>
+    <text>取得导入数据的设定信息</text>
+    <sql>
+      select * from T_JK_importDataSet where 1=1 {0}
+    </sql>
+  </sql_importDataSet_select_A>
+  
+  <sql804_O>
+    <text>插入体检信息的状态</text>
+    <sql>
+      select cz.b_rgid,cz.b_name, count(*) ydrry ,1 as xz from T_TJ_YLJG_XIANGZHEN  left join T_BS_CUNZHUANG cz on cz.b_rgid like T_TJ_YLJG_XIANGZHEN.xzbm ||'%'  left join  t_da_jkda_rkxzl rkx  on cz.b_rgid=rkx.D_JWH where 1=1 {0} group by cz.b_rgid,cz.b_name
+    </sql>
+  </sql804_O>
+
+  <sql040_O>
+    <text>取得档案列表</text>
+    <sql>
+      SELECT ID, D_XM  as  姓名, D_SFZH   as 身份证号, D_LXDH   as 联系电话, D_XXDZ   as 地址, D_GRDABH as 档案编号, D_JTDABH  as  健康体检号 FROM T_DA_JKDA_RKXZL where 1=1 {0}
+    </sql>
+  </sql040_O>
+</userConfig>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<userConfig>
+  <!--以下需要修改-->
+  <YQ_DBFirebird>
+    <text>B超Firebird数据库存放路径</text>
+    <value>F:\zyb\病例.g_b</value>
+  </YQ_DBFirebird>
+  <YQ_DBFUser>
+    <text>B超Firebird数据库用户</text>
+    <value>SYSDBA</value>
+  </YQ_DBFUser>
+  <YQ_DBFPwd>
+    <text>B超Firebird数据库密码</text>
+    <value>masterkey</value>
+  </YQ_DBFPwd>
+  <YQ_DBAccess>
+    <text>体检系统ACCESS数据库配置</text>
+    <value>F:\zyb\ggwstjxt.mdb</value>
+  </YQ_DBAccess>
+  <YQ_filePath_img_tj>
+    <text>体检系统图片路径</text>
+    <value>F:\公共卫生体检系统\3.0\程序\TJClient_2008\公卫体检_新\TJClient\TJClient\BCIMG\</value>
+  </YQ_filePath_img_tj>
+  <YQ_Interval>
+    <text>value</text>
+    <value>60</value>
+  </YQ_Interval>
+  <YQ_Bcistrue>
+    <text>B超是否正常的判断0 临床诊断 正常 异常  1 超声提示（未见异常或未见明显异常）</text>
+    <value>1</value>
+  </YQ_Bcistrue>
+  <YQ_ZDSTR>
+    <text>B超是正常的匹配字符</text>
+    <value>肝胆胰脾未见明显异常</value>
+  </YQ_ZDSTR>
+  <!--以上需要修改-->
+  <!--以下不需要修改-->
+  <YQ_DataType>
+    <text>数据类型 0： 串口 1：数据库firebird</text>
+    <value>1</value>
+  </YQ_DataType>
+  <YQ_DateType>
+    <text>value</text>
+    <value>1</value>
+  </YQ_DateType>
+  <YQ_YQType>
+    <text>仪器数据处理类型 1:lis  0:心电  insertsql|updatesql：其他</text>
+    <value>sql_BC_insert|sql_BC_update</value>
+  </YQ_YQType>
+  <YQ_Version>
+    <text>value</text>
+    <value>BC.BC, BC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </YQ_Version>
+</userConfig>

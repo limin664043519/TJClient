@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<userConfig>
+  <YQ_DataType>
+    <text>数据类型 0：串口 1：数据库access 2：文件</text>
+    <value>2</value>
+  </YQ_DataType>
+  
+  <YQ_filePath_img>
+    <text>心电仪器 文件路径</text>
+    <value>E:\0SVN\公共卫生体检系统\2.0\设计资料\设计\心电\ecg\out\wave\</value>
+  </YQ_filePath_img>
+  
+  <YQ_filePath_img_tj>
+    <text>体检系统 文件路径</text>
+    <value>D:\jktjxd\xdt\</value>
+  </YQ_filePath_img_tj>
+  
+  <YQ_filePath_text>
+    <text>心电仪器  文件路径</text>
+    <value>E:\0SVN\公共卫生体检系统\2.0\设计资料\设计\心电\ecg\out\</value>
+  </YQ_filePath_text>
+
+  <YQ_filePath_text_tj>
+    <text>体检系统 文件路径</text>
+    <value>D:\jktjxd\xd\</value>
+  </YQ_filePath_text_tj>
+  <YQ_Interval>
+    <text>自动处理间隔时间  0:不启动自动处理 0以外:间隔时间</text>
+    <value>1</value>
+  </YQ_Interval>
+  
+  <YQ_YQType>
+    <text>仪器数据处理类型 1:lis  0:心电</text>
+    <value>0</value>
+  </YQ_YQType>
+  
+  <YQ_Type>
+    <text>标本日期 1:系统日期 0:仪器日期</text>
+    <value>1</value>
+  </YQ_Type>
+  
+  <YQ_Version>
+    <text>dll文件版本</text>
+    <value>LISYQ.FCP7101, FCP7101, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </YQ_Version>
+  <YQ_items>
+    <text>项目</text>
+    <value>FCP7101_rq;日期|FCP7101_sj;时间|FCP7101_wjlx;文件类型|FCP7101_jqxh;机器型号|FCP7101_ajfh;安静负荷|FCP7101_id;ID|FCP7101_xb;性别|FCP7101_nl;年龄|FCP7101_xm;姓名|FCP7101_sg;身高|FCP7101_tz;体重|FCP7101_xy;血压|FCP7101_yy;用药|FCP7101_zz;症状|FCP7101_bz;备注|FCP7101_ys;医生|FCP7101_xl;心率(bpm)|FCP7101_rr;R-R(ms)|FCP7101_pr;P-R(ms)|FCP7101_qrs;QRS(ms)|FCP7101_qt;QT(ms)|FCP7101_qtc;QTC|FCP7101_deg;轴(deg)|FCP7101_rv5;RV5(mV)|FCP7101_rv6;RV6(mV)|FCP7101_SV1;SV1(mV)|FCP7101_RS;R+S(mV)|FCP7101_dj;等级|FCP7101_zddm;诊断代码|FCP7101_mnsdm;明尼苏达码|FCP7101_tm;条码号</value>
+  </YQ_items>
+</userConfig>

@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TJClient.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TJClient_GWXT_HealthAssistantServiceImplService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://221.1.64.214:9090/GWTJ/webservice/healthAssistant</Value>
+    </Setting>
+    <Setting Name="TJClient_GwtjDoService_GwtjDoService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3699/GwtjDoService.asmx</Value>
+    </Setting>
+    <Setting Name="TJClient_JKTJ_ClientDoService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:13652/ClientDoService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

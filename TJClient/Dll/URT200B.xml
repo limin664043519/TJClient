@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<userConfig>
+  <YQ_DataType>
+    <text>数据类型 0：串口 1：数据库access</text>
+    <value>0</value>
+  </YQ_DataType>
+  <YQ_DBaccess>
+    <text>数据库配置</text>
+    <value>D:\公共卫生体检系统\20150331\公共卫生体检2.0\程序\HT2000\ppl.mdb</value>
+  </YQ_DBaccess>
+  <YQ_items>
+    <text>项目</text>
+    <value>GLU_N;葡萄糖|URO;尿胆原|BIL;胆红素|KET;尿酮体|SG;比重|BLD;尿潜血|PH;酸碱度|PRO;尿蛋白</value>
+  </YQ_items>
+  <YQ_COM>
+    <text>value</text>
+    <value>COM1</value>
+  </YQ_COM>
+  <YQ_BaudRate>
+    <text>value</text>
+    <value>1200</value>
+  </YQ_BaudRate>
+  <YQ_DataBits>
+    <text>value</text>
+    <value>7</value>
+  </YQ_DataBits>
+  <YQ_Parity>
+    <text>value</text>
+    <value>1</value>
+  </YQ_Parity>
+  <YQ_StopBits>
+    <text>value</text>
+    <value>2</value>
+  </YQ_StopBits>
+  <YQ_Interval>
+    <text>value</text>
+    <value>0</value>
+  </YQ_Interval>
+  <YQ_DateType>
+    <text>value</text>
+    <value>1</value>
+  </YQ_DateType>
+  <YQ_writetimeout>
+    <text>value</text>
+    <value>-1</value>
+  </YQ_writetimeout>
+  <YQ_readtimeout>
+    <text>value</text>
+    <value>1000</value>
+  </YQ_readtimeout>
+  <YQ_Version>
+    <text>value</text>
+    <value>LISYQ.URT200B,URT200B, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </YQ_Version>
+  <YQ_YQType>
+    <text>仪器数据处理类型 1:lis  0:心电</text>
+    <value>1</value>
+  </YQ_YQType>
+</userConfig>

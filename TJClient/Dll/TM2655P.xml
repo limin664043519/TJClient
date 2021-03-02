@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<userConfig>
+  <YQ_COM>
+    <text>通信端口</text>
+    <value>COM4</value>
+  </YQ_COM>
+
+  <YQ_BaudRate>
+    <text>波特率</text>
+    <value>9600</value>
+  </YQ_BaudRate>
+
+  <YQ_DataBits>
+    <text>数据位</text>
+    <value>8</value>
+  </YQ_DataBits>
+
+  <YQ_StopBits>
+    <text>停止位</text>
+    <value>1</value>
+  </YQ_StopBits>
+
+  <YQ_Parity>
+    <text>校验位1:偶 2:奇 3:无 4:标志 5:空格</text>
+    <value>3</value>
+  </YQ_Parity>
+
+  <YQ_readtimeout>
+    <text>获取或设置读取操作未完成时发生超时之前的毫秒数</text>
+    <value>1000</value>
+  </YQ_readtimeout>
+
+  <YQ_writetimeout>
+    <text>获取或设置写入操作未完成时发生超时之前的毫秒数</text>
+    <value>-1</value>
+  </YQ_writetimeout>
+
+ <YQ_Interval>
+    <text>自动处理间隔时间  0:不启动自动处理 0以外:间隔时间 </text>
+    <value>0</value>
+  </YQ_Interval>
+
+ <YQ_DateType>
+    <text>标本日期 1:系统日期 0:仪器日期</text>
+    <value>0</value>
+  </YQ_DateType>
+
+  <YQ_Version>
+    <text>解码程序版本</text>
+    <value>LISYQ.TM2655P, TM2655P, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </YQ_Version>
+
+  <YQ_itemType>
+    <text>项目类型 单项目还是多个项目 比如血压  分为左侧血压和右侧血压   0:单项目 1:多项目</text>
+    <value>1</value>
+  </YQ_itemType>
+  <YQ_items>
+    <text>项目  项目1名称,体检项目编码1|项目2名称,体检项目编码2</text>
+    <value>左,0008|右,0010</value>
+  </YQ_items>
+  
+  
+</userConfig>

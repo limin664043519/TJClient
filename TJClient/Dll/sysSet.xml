@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<userConfig>
+  <checkBox_nlcheck_print>
+    <text>
+    </text>
+    <value>false</value>
+  </checkBox_nlcheck_print>
+  <checkBox_showAll_print>
+    <text>
+    </text>
+    <value>false</value>
+  </checkBox_showAll_print>
+  <checkBox_zdrq_print>
+    <text>
+    </text>
+    <value>false</value>
+  </checkBox_zdrq_print>
+  <checkBox_showZdrq_print>
+    <text>
+    </text>
+    <value>false</value>
+  </checkBox_showZdrq_print>
+</userConfig>

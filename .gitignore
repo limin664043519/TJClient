@@ -3,3 +3,6 @@
 ################################################################################
 
 /clientDoWebService/ExcelUpFile/backup
+/clientDoWebService/obj
+/TJClient/bin
+/TJClient/obj
