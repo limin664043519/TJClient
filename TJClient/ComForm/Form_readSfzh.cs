@@ -117,9 +117,9 @@ namespace TJClient.ComForm
         /// 测试读卡器
         /// </summary>
         /// <returns></returns>
-        private string  readCardTest()
+        private string readCardTest()
         {
-            string stmp="";
+            string stmp = "";
             int i, nRet;
             uint[] iBaud = new uint[1];
             i = Syn_FindReader();
@@ -150,25 +150,26 @@ namespace TJClient.ComForm
             return stmp;
         }
 
-   
+
 
         /// <summary>
         /// 读取身份证号
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public  DataTable readSfzh()
+        public DataTable readSfzh()
         {
-            IDCardData CardMsg = new IDCardData();
             DataTable dt = new DataTable();
-            int nRet, nPort, iPhotoType;
-            string stmp;
-            byte[] cPath = new byte[255];
-            byte[] pucIIN = new byte[4];
-            byte[] pucSN = new byte[8];
-            nPort = m_iPort;
             try
             {
+                IDCardData CardMsg = new IDCardData();
+
+                int nRet, nPort, iPhotoType;
+                string stmp;
+                byte[] cPath = new byte[255];
+                byte[] pucIIN = new byte[4];
+                byte[] pucSN = new byte[8];
+                nPort = m_iPort;
 
                 string readcard = readCardTest();
                 if (readcard.Length > 0)
@@ -188,8 +189,9 @@ namespace TJClient.ComForm
                 Syn_SetBornType(1);			// 0=YYYYMMDD,1=YYYY年MM月DD日,2=YYYY.MM.DD,3=YYYY-MM-DD,4=YYYY/MM/DD
                 Syn_SetUserLifeBType(1);	// 0=YYYYMMDD,1=YYYY年MM月DD日,2=YYYY.MM.DD,3=YYYY-MM-DD,4=YYYY/MM/DD
                 Syn_SetUserLifeEType(1, 1);	// 0=YYYYMMDD(不转换),1=YYYY年MM月DD日,2=YYYY.MM.DD,3=YYYY-MM-DD,4=YYYY/MM/DD,
-                // 0=长期 不转换,	1=长期转换为 有效期开始+50年           
-                if (Syn_OpenPort(nPort) == 0)
+                // 0=长期 不转换,	1=长期转换为 有效期开始+50年 
+                int portResult = Syn_OpenPort(nPort);
+                if (portResult == 0)
                 {
                     if (Syn_SetMaxRFByte(nPort, 80, 0) == 0)
                     {
@@ -241,7 +243,7 @@ namespace TJClient.ComForm
                             dt.Rows.Add();
                             dt.Rows[dt.Rows.Count - 1]["姓名"] = CardMsg.Name;
                             dt.Rows[dt.Rows.Count - 1]["性别"] = CardMsg.Sex;
-                            dt.Rows[dt.Rows.Count - 1]["性别编码"] = CardMsg.Sex.Equals ("男")? "1" :"2";
+                            dt.Rows[dt.Rows.Count - 1]["性别编码"] = CardMsg.Sex.Equals("男") ? "1" : "2";
                             dt.Rows[dt.Rows.Count - 1]["民族"] = CardMsg.Nation;
                             dt.Rows[dt.Rows.Count - 1]["出生日期"] = CardMsg.Born;
                             dt.Rows[dt.Rows.Count - 1]["地址"] = CardMsg.Address;
@@ -262,19 +264,20 @@ namespace TJClient.ComForm
                 else
                 {
                     System.Threading.Thread.Sleep(1);
-                    stmp = Convert.ToString(System.DateTime.Now) + "  读取故障，请重新读取！";
+                    stmp = Convert.ToString(System.DateTime.Now) + "  读取故障，请重新读取！" + portResult.ToString();
                     // listBox1.Items.Add(stmp);
-                    //throw new Exception(stmp);
-                    return readSfzh();
+                    throw new Exception(stmp);
+                    //return readSfzh();
                 }
             }
             catch (Exception ex)
             {
                 timer1.Enabled = false;
-                if(this.Owner!=null){
-                sysCommonForm owerForm = (sysCommonForm)this.Owner;
-                owerForm.setStatus("1");
-            }
+                if (this.Owner != null)
+                {
+                    sysCommonForm owerForm = (sysCommonForm)this.Owner;
+                    owerForm.setStatus("1");
+                }
                 MessageBox.Show(ex.Message);
             }
             return dt;

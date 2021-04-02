@@ -2700,10 +2700,11 @@ namespace FBYClient
             // 
             // label_L_TB_DF_zytz
             // 
+            this.label_L_TB_DF_zytz.AutoSize = true;
             this.label_L_TB_DF_zytz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label_L_TB_DF_zytz.Location = new System.Drawing.Point(44, 5);
             this.label_L_TB_DF_zytz.Name = "label_L_TB_DF_zytz";
-            this.label_L_TB_DF_zytz.Size = new System.Drawing.Size(22, 17);
+            this.label_L_TB_DF_zytz.Size = new System.Drawing.Size(17, 12);
             this.label_L_TB_DF_zytz.TabIndex = 21;
             this.label_L_TB_DF_zytz.Text = "99";
             this.label_L_TB_DF_zytz.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -3679,7 +3680,6 @@ namespace FBYClient
             this.label_msg_xx.Name = "label_msg_xx";
             this.label_msg_xx.Size = new System.Drawing.Size(294, 23);
             this.label_msg_xx.TabIndex = 306;
-            this.label_msg_xx.Text = "label1";
             // 
             // textBox_head_JKDAH
             // 

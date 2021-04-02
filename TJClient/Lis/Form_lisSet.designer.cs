@@ -438,7 +438,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_lisSet";
-            this.Text = "数据字典管理";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.para_load);
             this.panel1.ResumeLayout(false);
             this.groupBox_jc.ResumeLayout(false);

@@ -67,5 +67,15 @@ namespace TJClient.ComForm
             ywadd.ShowDialog();
             YWDropDownGrid_Load(null, null);
         }
+
+        private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("确认删除该药品？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                DBAccess dBAccess = new DBAccess();
+                dBAccess.ExecuteNonQueryBySql("delete from SYS_YW_DICS where YWMC = '" + dgv_yw.SelectedRows[0].Cells["YWMC"].Value.ToString() + "'");
+                YWDropDownGrid_Load(null, null);
+            }            
+        }
     }
 }

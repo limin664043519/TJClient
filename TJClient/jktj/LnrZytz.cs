@@ -1451,6 +1451,16 @@ namespace FBYClient
             //计算
             calculate_zytz();
 
+            //清除复选框
+            clearCheck();
+
+            //清空信息
+            label_msg_xx.Text = "";
+        }
+
+        //清除复选框
+        private void clearCheck()
+        {
             //气虚质中医药保健指导
             checkBox_L_QX_ZD_1_zytz.Checked = false;
             checkBox_L_QX_ZD_2_zytz.Checked = false;
@@ -1528,17 +1538,14 @@ namespace FBYClient
             checkBox_L_PH_ZD_5_zytz.Checked = false;
             checkBox_L_PH_ZD_6_zytz.Checked = false;
             textBox_L_PH_QT_zytz.Text = "";
-
-            //清空信息
-            label_msg_xx.Text = "";
         }
-
 
         /// <summary>
         /// 检索中医体质的数据
         /// </summary>
         private void select_zytz()
         {
+            clearCheck();
             //中医体质辨识的问题
             getWtList();
             initWt();

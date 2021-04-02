@@ -2260,6 +2260,13 @@ namespace FBYClient
             //先判断是否启用签名
             if (TJClient.Signname.Common.ShowSignnameOperation())
             {
+                if (cboSignname.SelectedIndex == -1)
+                {
+                    if (cboSignname.Items.Count > 0)
+                    {
+                        cboSignname.SelectedIndex = 0;
+                    }                    
+                }
                 if (picSignname1111.Image == null && cboSignname.Items[cboSignname.SelectedIndex].ToString().Equals("")) //判断是否签名
                 {
                     return;
@@ -2360,12 +2367,22 @@ namespace FBYClient
             string xmmc = "";
             string ControlId = "";
             string dw = "";
+            string valueHigh = "";
+            string valueLow = "";
             string KJLX = "";
+            string KJID = "";
 
             if (dtControl != null && dtControl.Rows.Count > 0)
             {
                 for (int i = 0; i < dtControl.Rows.Count; i++)
                 {
+                    //项目名称
+                    xmmc = dtControl.Rows[i]["xmmc"] != null ? dtControl.Rows[i]["xmmc"].ToString() : "0";
+                    xmbm = dtControl.Rows[i]["xmbm"] != null ? dtControl.Rows[i]["xmbm"].ToString() : "0";
+                    KJLX = dtControl.Rows[i]["KJLX"] != null ? dtControl.Rows[i]["KJLX"].ToString() : "";
+                    KJID = dtControl.Rows[i]["KJID"] != null ? dtControl.Rows[i]["KJID"].ToString() : "";
+                    ControlId = dtControl.Rows[i]["ControlId"] != null ? dtControl.Rows[i]["ControlId"].ToString() : "";
+
                     //同一个项目
                     if (controlGroup_tem.Equals(dtControl.Rows[i]["ControlGroup"].ToString()))
                     {
@@ -2397,11 +2414,7 @@ namespace FBYClient
                         ifNotNull = dtControl.Rows[i]["isNotNull"] != null ? dtControl.Rows[i]["isNotNull"].ToString() : "0";
                         //未录入项目
                         isCheckNull = false;
-                        //项目名称
-                        xmmc = dtControl.Rows[i]["xmmc"] != null ? dtControl.Rows[i]["xmmc"].ToString() : "0";
-                        xmbm = dtControl.Rows[i]["xmbm"] != null ? dtControl.Rows[i]["xmbm"].ToString() : "0";
-                        KJLX = dtControl.Rows[i]["KJLX"] != null ? dtControl.Rows[i]["KJLX"].ToString() : "";
-                        ControlId = dtControl.Rows[i]["ControlId"] != null ? dtControl.Rows[i]["ControlId"].ToString() : "";
+                        
 
                         //必须录入验证
                         if (ifNotNull.Equals("1"))
@@ -2414,24 +2427,123 @@ namespace FBYClient
                         else
                         {
                             isCheckNull = true;
-                        }
+                        }                        
+                    }
 
-                        //验证带单位项是否未数字
-                        dw = dtControl.Rows[i]["DW"] != null ? dtControl.Rows[i]["DW"].ToString() : "";
-                        if ((!string.IsNullOrWhiteSpace(dw) && dw != "0") || xmbm == "0048" || xmbm == "0049" || xmbm == "0050" || xmbm == "0051")
+                    //验证带单位项是否为数字
+                    dw = dtControl.Rows[i]["DW"] != null ? dtControl.Rows[i]["DW"].ToString() : "";
+                    if ((!string.IsNullOrWhiteSpace(dw) && dw != "0") || xmbm == "0048" || xmbm == "0049" || xmbm == "0050" || xmbm == "0051")
+                    {
+                        double aaa;
+                        if (dtControl.Rows[i]["value"] != null && !string.IsNullOrWhiteSpace(dtControl.Rows[i]["value"].ToString()) && !double.TryParse(dtControl.Rows[i]["value"].ToString(), out aaa))
                         {
-                            double aaa;
-                            if (dtControl.Rows[i]["value"] != null && !string.IsNullOrWhiteSpace(dtControl.Rows[i]["value"].ToString()) && !double.TryParse(dtControl.Rows[i]["value"].ToString(), out aaa))
+                            if (SetCheckControlFocus(ControlId, out Message) == true)
+                            {
+                                MessageBox.Show("请填写有效的【" + xmmc + "】");
+                                return false;
+                            }
+                        }
+                    }
+
+                    //验证牙齿排序
+                    if (xmbm == "0044" || xmbm == "0045" || xmbm == "0046")
+                    {
+                        if (ControlId.Contains("1") || ControlId.Contains("3"))
+                        {
+                            //倒序
+                            if (dtControl.Rows[i]["value"] != null && !string.IsNullOrWhiteSpace(dtControl.Rows[i]["value"].ToString()) && !isDaoXu(dtControl.Rows[i]["value"].ToString()))
                             {
                                 if (SetCheckControlFocus(ControlId, out Message) == true)
                                 {
-                                    MessageBox.Show("请填写有效的【" + xmmc + "】");
+                                    MessageBox.Show("请填写序列有效的【" + xmmc + "】");
+                                    return false;
+                                }
+                            }
+                        }
+                        else if (ControlId.Contains("2") || ControlId.Contains("4"))
+                        {
+                            //正序
+                            if (dtControl.Rows[i]["value"] != null && !string.IsNullOrWhiteSpace(dtControl.Rows[i]["value"].ToString()) && !isZhengXu(dtControl.Rows[i]["value"].ToString()))
+                            {
+                                if (SetCheckControlFocus(ControlId, out Message) == true)
+                                {
+                                    MessageBox.Show("请填写序列有效的【" + xmmc + "】");
                                     return false;
                                 }
                             }
                         }
                     }
+
+                    //验证最高值范围
+                    valueHigh = dtControl.Rows[i]["valueHeigh"] != null ? dtControl.Rows[i]["valueHeigh"].ToString() : "";
+                    if (!string.IsNullOrWhiteSpace(valueHigh))
+                    {
+                        double aaa;
+                        if (dtControl.Rows[i]["value"] != null && !string.IsNullOrWhiteSpace(dtControl.Rows[i]["value"].ToString())
+                            && double.TryParse(dtControl.Rows[i]["value"].ToString(), out aaa) && double.TryParse(valueHigh, out aaa)
+                            && double.Parse(dtControl.Rows[i]["value"].ToString()) > double.Parse(valueHigh))
+                        {
+                            if (SetCheckControlFocus(ControlId, out Message) == true)
+                            {
+                                MessageBox.Show("【" + xmmc + "】的值过高");
+                                return false;
+                            }
+                        }
+                    }
+
+                    //验证最低值范围
+                    valueLow = dtControl.Rows[i]["valueLower"] != null ? dtControl.Rows[i]["valueLower"].ToString() : "";
+                    if (!string.IsNullOrWhiteSpace(valueLow))
+                    {
+                        double aaa;
+                        if (dtControl.Rows[i]["value"] != null && !string.IsNullOrWhiteSpace(dtControl.Rows[i]["value"].ToString())
+                            && double.TryParse(dtControl.Rows[i]["value"].ToString(), out aaa) && double.TryParse(valueLow, out aaa)
+                            && double.Parse(dtControl.Rows[i]["value"].ToString()) < double.Parse(valueLow))
+                        {
+                            if (SetCheckControlFocus(ControlId, out Message) == true)
+                            {
+                                MessageBox.Show("【" + xmmc + "】的值过低");
+                                return false;
+                            }
+                        }
+                    }
                 }
+            }
+
+            return true;
+        }
+
+        private bool isDaoXu(string num)
+        {           
+            int currNum;
+            int lastNum = 0;
+
+            for (int i = 0; i < num.Length; i++)
+            {
+                currNum = int.Parse(num.Substring(i, 1));
+                if (lastNum != 0 && currNum >= lastNum)
+                {
+                    return false;
+                }
+                lastNum = currNum;
+            }
+
+            return true;
+        }
+
+        private bool isZhengXu(string num)
+        {
+            int currNum;
+            int lastNum = 0;
+
+            for (int i = 0; i < num.Length; i++)
+            {
+                currNum = int.Parse(num.Substring(i, 1));
+                if (lastNum != 0 && currNum <= lastNum)
+                {
+                    return false;
+                }
+                lastNum = currNum;
             }
 
             return true;

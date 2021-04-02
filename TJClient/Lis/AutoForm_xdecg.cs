@@ -238,7 +238,7 @@ namespace FBYClient
                     DataTableSecondaryTreatment(ref dt);
 
                     //LisResultReOperation(dt);
-                    //dt_pp(dt);
+                    dt_pp(dt);
                     //数据保存到T_JK_lis_result_re
                     //Upd_all(dt);
                     button_save_sys(dt, GetYqType());
@@ -260,10 +260,72 @@ namespace FBYClient
             return dt;
         }
 
+        /// <summary>
+        /// 按照维护的基础数据匹配心电图的结果
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public DataTable dt_pp(DataTable dt)
+        {
+            //将数据进行排序
+            //DataView dtview_pp = dt.DefaultView;
+            //dtview_pp.Sort = " ybh,xmdh ";
+            //dt = dtview_pp.ToTable();
 
-        
+            DataRow[] dtRows = dt.Select(" xmdh='XDT-RESULT-INFO'");
+            if (dtRows.Length > 0)
+            {
 
-        
+                DBAccess dbaccess = new DBAccess();
+                DataTable dt_pp_base = dbaccess.ExecuteQueryBySql(string.Format("select * from t_jk_xdtjgppb where  yljgbm is null or yljgbm='' or yljgbm ='{0}' order by value ", UserInfo.Yybm));
+
+                for (int i = 0; i < dtRows.Length; i++)
+                {
+
+                    DataRow[] dtrow_qt = dt.Select(string.Format(" xmdh='XDT-ZT' and ybh='{0}' and jyrq='{1}' ", dtRows[i]["ybh"].ToString(), dtRows[i]["jyrq"].ToString()));
+                    if (dtrow_qt != null && dtrow_qt.Length > 0)
+                    {
+                        if (dt_pp_base != null && dt_pp_base.Rows.Count > 0)
+                        {
+                            string CONCLUSION_QT = dtRows[i]["result"].ToString().Replace("1.","").Replace("2.", "").Replace("3.", "").Replace("4.", "").Replace("5.", "").Replace("6.", "").Replace("7.", "").Replace("8.", "").Replace("9.", "").Replace("10.", "").Replace("11.", "").Replace("12.", "").Replace("13.", "").Replace("14.", "").Replace("15.", "");
+                            string tjztqt = "";
+                            for (int j = 0; j < dt_pp_base.Rows.Count; j++)
+                            {
+                                if (CONCLUSION_QT.IndexOf(dt_pp_base.Rows[j]["text"].ToString()) > -1)
+                                {
+                                    CONCLUSION_QT = CONCLUSION_QT.Replace(dt_pp_base.Rows[j]["text"].ToString() + ".", "").Replace("." + dt_pp_base.Rows[j]["text"].ToString(), "");
+                                    string strvalue_tem = dt_pp_base.Rows[j]["value"].ToString();
+
+                                    if (strvalue_tem.IndexOf((tjztqt + ",")) == -1)
+                                    {
+                                        tjztqt = tjztqt + "," + strvalue_tem;
+                                    }
+
+                                }
+                            }
+
+                            if (tjztqt.Replace(",1", "").Length > 0)
+                            {
+                                tjztqt = tjztqt.Replace(",1", "");
+                            }
+
+                            if (CONCLUSION_QT.Trim().Length > 0)
+                            {
+                                tjztqt = tjztqt + "," + "99";
+                            }
+                            else {
+                                tjztqt = ",1";
+                            }
+
+                            dtRows[i]["result"] = CONCLUSION_QT;
+                            dtrow_qt[0]["result"] = tjztqt.Length > 1 ? tjztqt.Substring(1) : tjztqt;
+
+                        }
+                    }
+                }
+            }
+            return dt;
+        }
 
         private DataTable GetDtAccess(string ybh, string yljgbm, string sblx)
         {

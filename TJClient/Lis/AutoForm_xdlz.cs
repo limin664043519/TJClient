@@ -397,7 +397,7 @@ namespace FBYClient
             dt_update.AcceptChanges();
 
             dt_update.Rows[0]["yybm"] = UserInfo.Yybm;
-            dt_update.Rows[0]["yq"] = "BCLZZYY";
+            dt_update.Rows[0]["yq"] = "EDANSE300";
             dt_update.Rows[0]["ybh"] = ybh;
             dt_update.Rows[0]["jyrq"] = Convert.ToDateTime(jyrq).ToString("yyyy-MM-dd");
             dt_update.Rows[0]["testno"] = testno;//dt_access.Rows[0]["jkdah"].ToString();
@@ -754,7 +754,7 @@ namespace FBYClient
             //dtview_pp.Sort = " ybh,xmdh ";
             //dt = dtview_pp.ToTable();
 
-            DataRow[] dtRows = dt.Select(" xmdh='CONCLUSION_QT'");
+            DataRow[] dtRows = dt.Select(" xmdh='CONCLUSION'");
             if (dtRows.Length > 0)
             {
 
@@ -775,13 +775,14 @@ namespace FBYClient
                             {
                                 if (CONCLUSION_QT.IndexOf(dt_pp_base.Rows[j]["text"].ToString()) > -1)
                                 {
-                                    CONCLUSION_QT = CONCLUSION_QT.Replace(dt_pp_base.Rows[j]["text"].ToString(), "");
+                                    CONCLUSION_QT = CONCLUSION_QT.Replace(dt_pp_base.Rows[j]["text"].ToString() + ".", "").Replace("." + dt_pp_base.Rows[j]["text"].ToString(), "").Replace(dt_pp_base.Rows[j]["text"].ToString(), "");
                                     string strvalue_tem = dt_pp_base.Rows[j]["value"].ToString();
 
                                     if (strvalue_tem.IndexOf((tjztqt + ",")) == -1)
                                     {
                                         tjztqt = tjztqt + "," + strvalue_tem;
                                     }
+
                                 }
                             }
 

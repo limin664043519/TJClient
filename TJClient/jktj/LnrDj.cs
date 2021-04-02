@@ -1028,7 +1028,7 @@ namespace FBYClient
                 //数据库操作标志
                 bool IsDbOk = true;
                 // 1:按照旧号码打印 2:按照新号码打印  3:不打印
-                if (dr["sxh_dj"] == DBNull.Value || ifTmDy.Equals("2"))
+                if (dr["sxh_dj"] == DBNull.Value)
                 {
                     //dr["sxh_dj"] = textBox_sxh_dj.Text;
                     dr["sxh_dj"] = textBox_sxh_dj.Text;
@@ -1036,6 +1036,18 @@ namespace FBYClient
                     dt_tem.AcceptChanges();
                     dr.SetAdded();
                     IsDbOk = addformbll.Add(dt_tem, "SQL063_TJZT_INSERT");
+                    textBox_sxh_dj.Text = (int.Parse(textBox_sxh_dj.Text) + 1).ToString();
+                }
+                else if (ifTmDy.Equals("2"))
+                {
+                    dr["sxh_dj"] = textBox_sxh_dj.Text;
+                    dr["yljgbm"] = UserInfo.Yybm;
+                    dt_tem.AcceptChanges();
+                    if (dr.RowState == DataRowState.Unchanged)
+                    {
+                        dr.SetModified();
+                    }
+                    IsDbOk = addformbll.Upd(dt_tem, "SQL063_TJZT_UPDATE");
                     textBox_sxh_dj.Text = (int.Parse(textBox_sxh_dj.Text) + 1).ToString();
                 }
                 else if (ifTmDy.Equals("1"))

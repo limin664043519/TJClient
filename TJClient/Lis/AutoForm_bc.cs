@@ -128,7 +128,7 @@ namespace FBYClient
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("主线处理：" + ex.Message + ex.StackTrace);
                 }
             });
             t.Start();
@@ -252,7 +252,7 @@ namespace FBYClient
             }
             catch (Exception ex)
             {
-                Jktj_lis.msgShow(ex.Message);
+                Jktj_lis.msgShow("数据接收：" + ex.Message + ex.StackTrace);
             }
             return dt;
         }
