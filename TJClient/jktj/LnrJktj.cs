@@ -1411,8 +1411,8 @@ namespace FBYClient
             //绑定事件         
             GridView_tem.SelectionMode = DataGridViewSelectionMode.CellSelect;
             GridView_tem.DataBindingComplete += GridView_tem_DataBindingComplete;
-            GridView_tem.CellEnter += dataGridView_CellEnter;
-            //GridView_tem.CellClick += dataGridView_CellClick;
+            //GridView_tem.CellEnter += dataGridView_CellEnter;
+            GridView_tem.CellClick += dataGridView_CellClick;
             GridView_tem.CellContentClick += dataGridView_CellContentClick;
 
             DataTable dtList = new DataTable();
@@ -1493,21 +1493,65 @@ namespace FBYClient
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
+        //private void dataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (datagridview_bool == false || e.RowIndex < 0) { return; }
+        //    try
+        //    {
+        //        DataGridView DataGridView_tem = (DataGridView)sender;
+
+        //        弹出药物框
+        //        /*if (e.ColumnIndex == 1 && DataGridView_tem.Columns[e.ColumnIndex].DataPropertyName == "Y_YWMC")
+        //        {
+        //            YWDropDownGrid dgv_yw = new YWDropDownGrid();
+        //            if (dgv_yw.ShowDialog() == DialogResult.OK)
+        //            {
+        //                DataGridView_tem.BeginEdit(true);
+        //                SendKeys.SendWait(dgv_yw.resultStr);                       
+        //            }
+
+        //            SendKeys.Send("{Tab}");//转换为Tab键 
+        //        }*/
+
+        //        DataGridViewComboBoxColumn comboBoxColumn = DataGridView_tem.Columns[e.ColumnIndex] as DataGridViewComboBoxColumn;
+        //        if (comboBoxColumn != null)
+        //        {
+        //            DataGridView_tem.BeginEdit(true);
+        //            DataGridViewComboBoxEditingControl comboBoxEditingControl = DataGridView_tem.EditingControl as DataGridViewComboBoxEditingControl;
+        //            if (comboBoxEditingControl != null)
+        //            {
+        //                comboBoxEditingControl.DroppedDown = true;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message + "|||" + ex.StackTrace);
+        //    }
+
+        //}
+
+        /// <summary>
+        /// DataGridView单击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (datagridview_bool == false) { return; }
+            if (datagridview_bool == false || e.RowIndex < 0) { return; }
             try
             {
                 DataGridView DataGridView_tem = (DataGridView)sender;
                 DataGridView_tem.BeginEdit(true);
 
                 //弹出药物框
-                if (e.ColumnIndex == 1)
+                if (e.ColumnIndex == 1 && DataGridView_tem.Columns[e.ColumnIndex].DataPropertyName == "Y_YWMC")
                 {
                     YWDropDownGrid dgv_yw = new YWDropDownGrid();
                     if (dgv_yw.ShowDialog() == DialogResult.OK)
                     {
-                        SendKeys.SendWait(dgv_yw.resultStr);
+                        //DataGridView_tem.BeginEdit(true);
+                        SendKeys.SendWait(dgv_yw.resultStr);                       
                     }
 
                     SendKeys.Send("{Tab}");//转换为Tab键 
@@ -1515,51 +1559,19 @@ namespace FBYClient
 
                 DataGridViewComboBoxColumn comboBoxColumn = DataGridView_tem.Columns[e.ColumnIndex] as DataGridViewComboBoxColumn;
                 if (comboBoxColumn != null)
-                {
+                {                    
                     DataGridViewComboBoxEditingControl comboBoxEditingControl = DataGridView_tem.EditingControl as DataGridViewComboBoxEditingControl;
                     if (comboBoxEditingControl != null)
                     {
                         comboBoxEditingControl.DroppedDown = true;
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-            }
 
+                //设定系统参数改项目被编辑过
+                CommomSysInfo.IsEdited = "1";
+            }
+            catch (Exception ex) { }
         }
-
-        /// <summary>
-        /// DataGridView单击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{            
-        //    if (datagridview_bool == false) { return; }
-        //    try
-        //    {               
-        //        DataGridView DataGridView_tem = (DataGridView)sender;
-        //        if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && DataGridView_tem[e.ColumnIndex, e.RowIndex] != null && !DataGridView_tem[e.ColumnIndex, e.RowIndex].ReadOnly)
-        //        {                    
-        //            /*DataGridViewComboBoxColumn comboBoxColumn = DataGridView_tem.Columns[e.ColumnIndex] as DataGridViewComboBoxColumn;
-        //            if (comboBoxColumn != null)
-        //            {
-        //                DataGridView_tem.BeginEdit(true);
-        //                DataGridViewComboBoxEditingControl comboBoxEditingControl = DataGridView_tem.EditingControl as DataGridViewComboBoxEditingControl;
-        //                if (comboBoxEditingControl != null)
-        //                {
-        //                    comboBoxEditingControl.DroppedDown = true;
-        //                }
-        //            }*/
-        //        }
-
-        //        //设定系统参数改项目被编辑过
-        //        CommomSysInfo.IsEdited = "1";
-        //    }
-        //    catch (Exception ex) { }
-        //}
 
         /// <summary>
         /// DataGridView删除事件
@@ -3169,8 +3181,9 @@ namespace FBYClient
                         DataGridView_tem.ClearSelection();
                         DataGridView_tem.CurrentCell = null;
                         DataGridView_tem.Rows[0].Cells[2].Selected = true;
-                        Thread t = new Thread(Run) { IsBackground = true };
-                        t.Start();
+                        datagridview_bool = true;
+                        /*Thread t = new Thread(Run) { IsBackground = true };
+                        t.Start();*/
                     }
                 }
             }
@@ -3179,11 +3192,11 @@ namespace FBYClient
             }
         }
 
-        void Run()
+        /*void Run()
         {
-            Thread.Sleep(200);
-            datagridview_bool = true;
-        }
+            //Thread.Sleep(200);
+            
+        }*/
 
         /// <summary>
         /// 创建一个保存控件信息的容器
@@ -3946,7 +3959,7 @@ namespace FBYClient
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "|||" + ex.StackTrace);
             }
         }
 

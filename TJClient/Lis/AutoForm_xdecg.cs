@@ -287,7 +287,8 @@ namespace FBYClient
                     {
                         if (dt_pp_base != null && dt_pp_base.Rows.Count > 0)
                         {
-                            string CONCLUSION_QT = dtRows[i]["result"].ToString().Replace("1.","").Replace("2.", "").Replace("3.", "").Replace("4.", "").Replace("5.", "").Replace("6.", "").Replace("7.", "").Replace("8.", "").Replace("9.", "").Replace("10.", "").Replace("11.", "").Replace("12.", "").Replace("13.", "").Replace("14.", "").Replace("15.", "");
+                            string CONCLUSION_QT = dtRows[i]["result"].ToString().Replace("1.窦性心律.", "").Replace("1.","").Replace("2.", "").Replace("3.", "").Replace("4.", "").Replace("5.", "").Replace("6.", "").Replace("7.", "").Replace("8.", "").Replace("9.", "").Replace("10.", "").Replace("11.", "").Replace("12.", "").Replace("13.", "").Replace("14.", "").Replace("15.", "");
+                            
                             string tjztqt = "";
                             for (int j = 0; j < dt_pp_base.Rows.Count; j++)
                             {
@@ -304,6 +305,11 @@ namespace FBYClient
                                 }
                             }
 
+                            if (CONCLUSION_QT.Length > 0)
+                            {
+                                CONCLUSION_QT = CONCLUSION_QT.Substring(0, CONCLUSION_QT.Length - 1);
+                            }
+
                             if (tjztqt.Replace(",1", "").Length > 0)
                             {
                                 tjztqt = tjztqt.Replace(",1", "");
@@ -313,11 +319,11 @@ namespace FBYClient
                             {
                                 tjztqt = tjztqt + "," + "99";
                             }
-                            else {
+                            /*else {
                                 tjztqt = ",1";
-                            }
+                            }*/                            
 
-                            dtRows[i]["result"] = CONCLUSION_QT;
+                            dtRows[i]["result"] = CONCLUSION_QT ;
                             dtrow_qt[0]["result"] = tjztqt.Length > 1 ? tjztqt.Substring(1) : tjztqt;
 
                         }
